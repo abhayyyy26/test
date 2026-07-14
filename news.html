@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>समाचार | महाविद्यालयीन कार्य</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .text-saffron {
+            color: #FF9933;
+        }
+
+        .bg-saffron {
+            background-color: #FF9933;
+        }
+
+        .text-navy {
+            color: #1e3a8a;
+        }
+
+        .border-saffron {
+            border-color: #FF9933;
+        }
+
+        /* Premium Glass Navbar Effect */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .text-navy {
+            color: #1e3a8a;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 antialiased text-gray-800">
+    <!-- 1. Premium Glass Navigation Bar -->
+    <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+
+                <!-- Left: Logo & Brand Name -->
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <div
+                        class="w-10 h-10 bg-saffron rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-orange-500/40">
+                        ॐ
+                    </div>
+                    <span class="font-bold text-2xl text-navy tracking-tight">महाविद्यालयीन कार्य सिवनी</span>
+                </div>
+
+                <!-- Center: Navigation Links (Desktop) -->
+                <div class="hidden md:flex space-x-8 items-center font-medium">
+                    <a href="#" class="text-gray-600 hover:text-saffron transition duration-300">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-saffron transition duration-300">हमारे बारे
+                        में</a>
+                    <a href="activities.html"
+                        class="text-gray-600 hover:text-saffron transition duration-300">गतिविधियाँ</a>
+                    <a href="news.html" class="text-saffron border-b-2 border-saffron pb-1">समाचार</a>
+                    <a href="gallery.html" class="text-gray-600 hover:text-saffron transition duration-300">गैलरी</a>
+                    <a href="#" class="text-gray-600 hover:text-saffron transition duration-300">संपर्क</a>
+                </div>
+                <div id="mobile-menu"
+                    class="hidden md:hidden bg-white border-t border-slate-200 p-4 shadow-lg absolute w-full left-0 top-20">
+                    <a href="index.html" class="block py-2 text-gray-600 hover:text-saffron">Home</a>
+                    <a href="about.html" class="block py-2 text-gray-600 hover:text-saffron">हमारे बारे में</a>
+                    <a href="activities.html" class="block py-2 text-gray-600 hover:text-saffron">गतिविधियाँ</a>
+                    <a href="news.html" class="block py-2 text-gray-600 hover:text-saffron">समाचार</a>
+                    <a href="gallery.html" class="block py-2 text-gray-600 hover:text-saffron">गैलरी</a>
+                    <a href="contact.html" class="block py-2 text-gray-600 hover:text-saffron">संपर्क</a>
+                </div>
+                <!-- Right: Mobile Menu Icon (No Login Button as requested) -->
+                <!-- यह कोड Navbar के भीतर ही, </nav> से ठीक पहले रखें -->
+                <!-- Right: Mobile Menu Icon -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Banner -->
+    <section class="relative pt-40 pb-20 lg:pt-48 lg:pb-28 overflow-hidden bg-white">
+        <!-- Background Image (National Flag) with Light Glass Overlay -->
+        <div class="absolute inset-0 z-0">
+            <!-- User's provided National Flag Image -->
+            <img src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                alt="National Flag Background" class="w-full h-full object-cover">
+
+            <!-- Light Glass Overlay (ताकि झंडा भी दिखे और टेक्स्ट भी पढ़ने में आए) -->
+            <div class="absolute inset-0 bg-white/60 backdrop-blur-[2px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <!-- Main Text: Dark Gray/Black, Highlight: Navy Blue -->
+            <h1 class="text-4xl lg:text-6xl font-extrabold text-gray-900 mb-4 drop-shadow-sm">
+                समाचार <span class="text-navy">एवं अपडेट</span>
+
+            </h1>
+
+            <!-- Subtitle: Dark Gray for better readability -->
+            <p class="text-gray-800 text-lg md:text-xl max-w-2xl mx-auto mb-6 font-medium drop-shadow-sm">
+                महाविद्यालयीन कार्य से जुड़ी नवीनतम जानकारी, कार्यक्रम एवं घोषणाएँ।
+            </p>
+
+            <!-- Breadcrumb (Dark Theme) -->
+            <nav class="flex justify-center text-sm font-semibold text-gray-600">
+                <ol class="inline-flex items-center space-x-2">
+                    <li class="inline-flex items-center hover:text-navy transition-colors">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li><span class="mx-2 text-gray-400">/</span></li>
+                    <li class="text-navy">समाचार</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Main Content Grid: Magazine Style -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+            <!-- Left Side: Main Column (Featured + Latest) -->
+            <div class="lg:col-span-2 space-y-12">
+
+                <!-- 2. Featured News (Top Story) -->
+                <section>
+                    <div class="bg-white rounded-[24px] shadow-lg overflow-hidden group border border-slate-100">
+                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                            class="w-full h-80 object-cover transform group-hover:scale-[1.02] transition duration-500">
+                        <div class="p-8">
+                            <span class="bg-blue-100 text-navy px-3 py-1 rounded-full text-xs font-bold uppercase">विशेष
+                                कार्यक्रम</span>
+                            <h2 class="text-3xl font-extrabold text-navy mt-4 mb-3">युवा संकल्प शिविर का सफलतापूर्वक
+                                समापन, 500 से अधिक छात्रों ने लिया भाग</h2>
+                            <p class="text-gray-600 mb-6">शहर के मुख्य महाविद्यालय में आयोजित तीन दिवसीय युवा संकल्प
+                                शिविर में छात्रों ने नेतृत्व और अनुशासन के गुर सीखे।</p>
+                            <a href="#" class="text-saffron font-bold flex items-center gap-2">पूरा पढ़ें →</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Latest News Grid -->
+                <section>
+                    <h3 class="text-2xl font-bold text-navy mb-8">नवीनतम समाचार</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- News Card Loop (3 Cards) -->
+                        <div
+                            class="bg-white p-6 rounded-[20px] shadow-sm hover:shadow-xl transition-all border border-slate-100">
+                            <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8"
+                                class="w-full h-40 object-cover rounded-xl mb-4">
+                            <span class="text-saffron text-xs font-bold">05 जुलाई 2026</span>
+                            <h4 class="font-bold text-navy mt-2">वृहद वृक्षारोपण अभियान</h4>
+                            <p class="text-gray-600 text-sm mt-2 line-clamp-2">कॉलेजों में पर्यावरण संरक्षण को लेकर चला
+                                विशेष अभियान...</p>
+                        </div>
+                        <div
+                            class="bg-white p-6 rounded-[20px] shadow-sm hover:shadow-xl transition-all border border-slate-100">
+                            <img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389"
+                                class="w-full h-40 object-cover rounded-xl mb-4">
+                            <span class="text-saffron text-xs font-bold">28 जून 2026</span>
+                            <h4 class="font-bold text-navy mt-2">करियर मार्गदर्शन कार्यशाला</h4>
+                            <p class="text-gray-600 text-sm mt-2 line-clamp-2">अंतिम वर्ष के छात्रों के लिए आयोजित विशेष
+                                सत्र...</p>
+                        </div>
+                        <div
+                            class="bg-white p-6 rounded-[20px] shadow-sm hover:shadow-xl transition-all border border-slate-100">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
+                                class="w-full h-40 object-cover rounded-xl mb-4">
+                            <span class="text-saffron text-xs font-bold">20 जून 2026</span>
+                            <h4 class="font-bold text-navy mt-2">रक्तदान शिविर सफल</h4>
+                            <p class="text-gray-600 text-sm mt-2 line-clamp-2">स्वयंसेवकों ने 100 से अधिक यूनिट रक्त दान
+                                किया...</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Side: Sidebar (Announcements + Events) -->
+            <aside class="space-y-12">
+                <!-- 4. Announcements -->
+                <section>
+                    <h3 class="text-2xl font-bold text-navy mb-6">📢 घोषणाएँ</h3>
+                    <div class="bg-white p-6 rounded-[20px] shadow-sm border-l-4 border-saffron space-y-6">
+                        <div class="border-b pb-4">
+                            <span class="text-xs text-saffron font-bold">20 जुलाई 2026</span>
+                            <h4 class="font-bold text-navy">आगामी बैठक: वार्षिक योजना</h4>
+                        </div>
+                        <div class="border-b pb-4">
+                            <span class="text-xs text-saffron font-bold">15 जुलाई 2026</span>
+                            <h4 class="font-bold text-navy">विशेष सूचना: अवकाश</h4>
+                        </div>
+                        <div>
+                            <span class="text-xs text-saffron font-bold">10 जुलाई 2026</span>
+                            <h4 class="font-bold text-navy">कार्यक्रम में परिवर्तन</h4>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Upcoming Events (Sidebar Placeholder) -->
+                <section>
+                    <h3 class="text-2xl font-bold text-navy mb-6">📅 आगामी कार्यक्रम</h3>
+                    <div class="space-y-4">
+                        <div class="bg-navy text-white p-6 rounded-[20px]">
+                            <h4 class="font-bold">स्वतंत्रता दिवस समारोह</h4>
+                            <p class="text-sm text-blue-200 mt-1">15 अगस्त | मुख्य प्रांगण</p>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+        </div>
+        <!-- 6. Archive (पुराने समाचार खोजें) -->
+        <section class="py-16 bg-white border-t border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="text-2xl font-bold text-navy mb-8 text-center">📂 पुराने समाचार खोजें (Archive)</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <select
+                        class="bg-slate-50 border border-slate-200 text-gray-700 py-3 px-6 rounded-full font-medium focus:ring-2 focus:ring-saffron outline-none">
+                        <option>वर्ष चुनें (2026)</option>
+                        <option>2025</option>
+                        <option>2024</option>
+                    </select>
+                    <select
+                        class="bg-slate-50 border border-slate-200 text-gray-700 py-3 px-6 rounded-full font-medium focus:ring-2 focus:ring-saffron outline-none">
+                        <option>महीना चुनें</option>
+                        <option>जुलाई</option>
+                        <option>जून</option>
+                    </select>
+                    <button
+                        class="bg-navy text-white px-8 py-3 rounded-full font-bold hover:bg-saffron transition">खोजें</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. FAQ Section -->
+        <section class="py-16 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-4">
+                <h3 class="text-2xl font-bold text-navy mb-8 text-center">सामान्य प्रश्न (FAQ)</h3>
+                <div class="space-y-4">
+                    <details class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                        <summary class="flex justify-between items-center font-bold text-navy cursor-pointer">
+                            समाचार कितनी बार अपडेट होते हैं? <span class="text-saffron">▼</span>
+                        </summary>
+                        <p class="text-gray-600 mt-4">नई गतिविधियों और सूचनाओं के अनुसार समाचार नियमित रूप से अपडेट
+                            किए जाते हैं।</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Explore More (CTA) -->
+        <section class="py-20 bg-white text-center">
+            <h2 class="text-3xl font-extrabold text-navy mb-8">अन्य अनुभाग देखें</h2>
+            <div class="flex justify-center gap-6">
+                <a href="gallery.html"
+                    class="bg-saffron text-white px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition">📸
+                    गैलरी</a>
+                <a href="activities.html"
+                    class="bg-navy text-saffron px-8 py-3 rounded-full font-bold hover:bg-blue-900 transition">🎯
+                    गतिविधियाँ</a>
+            </div>
+        </section>
+
+
+    </main>
+    <footer class="bg-[#1e3a8a] text-white pt-16 pb-8 border-t-4 border-saffron">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+                <!-- Logo & About -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div
+                            class="w-10 h-10 bg-saffron rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            ॐ
+                        </div>
+                        <span class="font-bold text-2xl tracking-tight text-white">महाविद्यालयीन कार्य</span>
+                    </div>
+                    <p class="text-blue-200 text-sm leading-relaxed">
+                        युवा शक्ति के माध्यम से राष्ट्र निर्माण की दिशा में सतत प्रयास। महाविद्यालयीन कार्य कॉलेज के
+                        युवाओं को समाज सेवा और नेतृत्व से जोड़ने का एक प्रकल्प है।
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-saffron">महत्वपूर्ण लिंक्स (Quick Links)</h4>
+                    <ul class="space-y-3 text-blue-200 text-sm">
+                        <li><a href="#"
+                                class="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">Home</a>
+                        </li>
+                        <li><a href="#"
+                                class="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">हमारे
+                                बारे में</a></li>
+                        <li><a href="#"
+                                class="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">गतिविधियाँ</a>
+                        </li>
+                        <li><a href="#"
+                                class="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">समाचार</a>
+                        </li>
+                        <li><a href="#"
+                                class="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">गैलरी</a>
+                        </li>
+                        <li><a href="#"
+                                class="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">संपर्क</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Footer Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-saffron">संपर्क करें</h4>
+                    <ul class="space-y-3 text-blue-200 text-sm">
+                        <li class="flex items-center gap-2">
+                            <span>📍</span> 123, संघ भवन मार्ग, नई दिल्ली
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span>📞</span> +91 98765 43210
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span>✉️</span> contact@mahavidyalayeenkarya.org
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright Line -->
+            <div
+                class="border-t border-blue-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-blue-300 text-xs">
+                <p>&copy; 2026 महाविद्यालयीन कार्य | राष्ट्रीय स्वयंसेवक संघ. सर्वाधिकार सुरक्षित (All Rights
+                    Reserved).
+                </p>
+                <div class="mt-4 md:mt-0 flex gap-4">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu'); // आपका वो वाला div जो मैंने पहले बताया था
+
+        btn.addEventListener('click', () => {
+            // यह मोबाइल मेनू को दिखाएगा या छुपाएगा
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

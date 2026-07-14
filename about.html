@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>हमारे बारे में | महाविद्यालयीन कार्य</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .text-saffron {
+            color: #FF9933;
+        }
+
+        .bg-saffron {
+            background-color: #FF9933;
+        }
+
+        .text-navy {
+            color: #1e3a8a;
+        }
+
+        .border-saffron {
+            border-color: #FF9933;
+        }
+
+        /* Premium Glass Navbar Effect */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* Timeline Custom CSS */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #e2e8f0;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line::before {
+                left: 24px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 antialiased overflow-x-hidden text-gray-800">
+
+    <!-- 1. Premium Glass Navigation Bar -->
+    <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+
+                <!-- Left: Logo & Brand Name -->
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <div
+                        class="w-10 h-10 bg-saffron rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-orange-500/40">
+                        ॐ
+                    </div>
+                    <span class="font-bold text-2xl text-navy tracking-tight">महाविद्यालयीन कार्य सिवनी</span>
+                </div>
+
+                <!-- Center: Navigation Links (Desktop) -->
+                <div class="hidden md:flex space-x-8 items-center font-medium">
+                    <a href="index.html" class="text-gray-600 hover:text-saffron transition duration-300">Home</a>
+                    <a href="about.html" class="text-saffron border-b-2 border-saffron pb-1">हमारे बारे में</a>
+                    <a href="activities.html"
+                        class="text-gray-600 hover:text-saffron transition duration-300">गतिविधियाँ</a>
+                    <a href="news.html" class="text-gray-600 hover:text-saffron transition duration-300">समाचार</a>
+                    <a href="#" class="text-gray-600 hover:text-saffron transition duration-300">गैलरी</a>
+                    <a href="#" class="text-gray-600 hover:text-saffron transition duration-300">संपर्क</a>
+                </div>
+                <div id="mobile-menu"
+                    class="hidden md:hidden bg-white border-t border-slate-200 p-4 shadow-lg absolute w-full left-0 top-20">
+                    <a href="index.html" class="block py-2 text-gray-600 hover:text-saffron">Home</a>
+                    <a href="about.html" class="block py-2 text-gray-600 hover:text-saffron">हमारे बारे में</a>
+                    <a href="activities.html" class="block py-2 text-gray-600 hover:text-saffron">गतिविधियाँ</a>
+                    <a href="news.html" class="block py-2 text-gray-600 hover:text-saffron">समाचार</a>
+                    <a href="gallery.html" class="block py-2 text-gray-600 hover:text-saffron">गैलरी</a>
+                    <a href="contact.html" class="block py-2 text-gray-600 hover:text-saffron">संपर्क</a>
+                </div>
+                <!-- Right: Mobile Menu Icon -->
+                <!-- यह कोड Navbar के भीतर ही, </nav> से ठीक पहले रखें -->
+                <!-- Right: Mobile Menu Icon -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Banner Section (Spacing updated for Fixed Navbar) -->
+    <section class="relative pt-40 pb-20 lg:pt-48 lg:pb-28 overflow-hidden">
+        <!-- Background Image with Saffron/Navy Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                alt="Students Background" class="w-full h-full object-cover">
+            <!-- Premium Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-navy/90 to-orange-600/80 mix-blend-multiply"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl lg:text-6xl font-extrabold text-white mb-6 drop-shadow-lg">हमारे <span
+                    class="text-saffron">बारे में</span></h1>
+
+            <!-- Breadcrumb -->
+            <nav class="flex justify-center text-sm font-medium text-blue-100">
+                <ol class="inline-flex items-center space-x-2">
+                    <li class="inline-flex items-center hover:text-white transition-colors">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li><span class="mx-2 text-gray-300">/</span></li>
+                    <li class="text-white">हमारे बारे में</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- 2. महाविद्यालयीन कार्य क्या है? (About Introduction) -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Content -->
+                <div class="space-y-6 order-2 lg:order-1">
+                    <div
+                        class="inline-block bg-orange-50 text-saffron font-semibold px-4 py-1.5 rounded-full text-sm mb-2 border border-orange-100">
+                        परिचय</div>
+                    <h2 class="text-3xl lg:text-5xl font-extrabold text-navy leading-tight mb-6">
+                        महाविद्यालयीन कार्य <span class="text-saffron">क्या है?</span>
+                    </h2>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        महाविद्यालयीन कार्य केवल एक पहल नहीं, बल्कि युवाओं के निर्माण का एक अनुष्ठान है। यह एक ऐसा मंच
+                        है जहाँ कॉलेज और विश्वविद्यालयों में पढ़ने वाले युवा अपनी ऊर्जा, प्रतिभा और विचारों को एक
+                        सकारात्मक दिशा देते हैं।
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        हमारा मुख्य उद्देश्य युवा शक्ति को संगठित कर उनमें राष्ट्र प्रेम, स्वावलंबन और सामाजिक
+                        उत्तरदायित्व की भावना जागृत करना है। हम मानते हैं कि जब एक युवा का चरित्र निर्माण होता है, तो
+                        स्वतः ही एक सशक्त समाज और अंततः एक परम वैभवशाली राष्ट्र का निर्माण होता है।
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        विभिन्न अध्ययन वर्गों, शारीरिक गतिविधियों और सेवा कार्यों के माध्यम से हम छात्रों को एक ऐसा
+                        वातावरण प्रदान करते हैं जो उन्हें किताबी ज्ञान से परे व्यावहारिक जीवन और नेतृत्व के लिए तैयार
+                        करता है।
+                    </p>
+                </div>
+                <!-- Large Image -->
+                <div class="relative order-1 lg:order-2 group">
+                    <div
+                        class="absolute inset-0 bg-navy rounded-[30px] transform -translate-x-4 translate-y-4 opacity-10">
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Students Gathering"
+                        class="relative rounded-[30px] w-full h-[500px] object-cover shadow-2xl z-10 transition-transform duration-700 group-hover:scale-[1.02]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. हमारा उद्देश्य (Our Objectives - 4 Cards) -->
+    <section class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-navy mb-4">हमारा <span
+                        class="text-saffron">उद्देश्य</span></h2>
+                <p class="text-gray-600 text-lg">हम इन चार प्रमुख स्तंभों के आधार पर युवाओं का सर्वांगीण विकास सुनिश्चित
+                    करते हैं।</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white p-8 rounded-[24px] shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-saffron group">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🇮🇳</div>
+                    <h3 class="text-xl font-bold text-navy mb-3">राष्ट्रभाव</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        मातृभूमि के प्रति समर्पण और राष्ट्र प्रथम की विचारधारा को युवाओं के दैनिक आचरण में ढालना।
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="bg-white p-8 rounded-[24px] shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-navy group">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">👨‍🎓</div>
+                    <h3 class="text-xl font-bold text-navy mb-3">नेतृत्व विकास</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        छात्रों की क्षमता को पहचान कर उन्हें समाज का सफल और जिम्मेदार नेतृत्वकर्ता बनाना।
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="bg-white p-8 rounded-[24px] shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-saffron group">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🤝</div>
+                    <h3 class="text-xl font-bold text-navy mb-3">सामाजिक समरसता</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        भेदभाव रहित, एकजुट और समरस समाज की स्थापना के लिए युवाओं को प्रेरित करना।
+                    </p>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="bg-white p-8 rounded-[24px] shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-navy group">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🌱</div>
+                    <h3 class="text-xl font-bold text-navy mb-3">सेवा एवं व्यक्तित्व निर्माण</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        सेवा कार्यों के माध्यम से संवेदनशीलता जगाना और उत्कृष्ट नैतिक मूल्यों का संचार करना।
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. कार्य की दिशा (Timeline/Process Section) -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-navy mb-4">कार्य की <span
+                        class="text-saffron">दिशा</span></h2>
+                <p class="text-gray-600 text-lg">संपर्क से लेकर राष्ट्र निर्माण तक की हमारी संगठनात्मक प्रक्रिया।</p>
+            </div>
+
+            <div class="relative timeline-line">
+
+                <!-- Step 1 (Left) -->
+                <div class="relative z-10 flex items-center justify-between md:justify-normal w-full mb-12">
+                    <div class="hidden md:block md:w-1/2 pr-12 text-right">
+                        <h3 class="text-2xl font-bold text-navy mb-2">विद्यार्थियों से संपर्क</h3>
+                        <p class="text-gray-600">महाविद्यालय परिसरों में जाकर नए छात्रों से आत्मीयता से मिलना और उनसे
+                            जुड़ना।</p>
+                    </div>
+                    <div
+                        class="absolute left-[24px] md:left-1/2 transform -translate-x-1/2 w-10 h-10 bg-saffron rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold">
+                        1</div>
+                    <div class="ml-16 md:hidden w-full bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <h3 class="text-xl font-bold text-navy mb-2">विद्यार्थियों से संपर्क</h3>
+                        <p class="text-gray-600 text-sm">महाविद्यालय परिसरों में जाकर नए छात्रों से आत्मीयता से मिलना और
+                            उनसे जुड़ना।</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 (Right) -->
+                <div class="relative z-10 flex items-center justify-between md:justify-normal w-full mb-12">
+                    <div class="hidden md:block md:w-1/2"></div>
+                    <div
+                        class="absolute left-[24px] md:left-1/2 transform -translate-x-1/2 w-10 h-10 bg-saffron rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold">
+                        2</div>
+                    <div class="ml-16 md:ml-0 md:w-1/2 md:pl-12">
+                        <div
+                            class="bg-slate-50 md:bg-transparent p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-slate-100 md:border-none">
+                            <h3 class="text-xl md:text-2xl font-bold text-navy mb-2">परिचय एवं संवाद</h3>
+                            <p class="text-gray-600 text-sm md:text-base">वैचारिक आदान-प्रदान और संगठन के दृष्टिकोण से
+                                उन्हें अवगत कराना।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 (Left) -->
+                <div class="relative z-10 flex items-center justify-between md:justify-normal w-full mb-12">
+                    <div class="hidden md:block md:w-1/2 pr-12 text-right">
+                        <h3 class="text-2xl font-bold text-navy mb-2">नियमित गतिविधियाँ</h3>
+                        <p class="text-gray-600">अध्ययन वर्ग, खेल, और चर्चाओं के माध्यम से निरंतर जुड़ाव बनाए रखना।</p>
+                    </div>
+                    <div
+                        class="absolute left-[24px] md:left-1/2 transform -translate-x-1/2 w-10 h-10 bg-saffron rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold">
+                        3</div>
+                    <div class="ml-16 md:hidden w-full bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <h3 class="text-xl font-bold text-navy mb-2">नियमित गतिविधियाँ</h3>
+                        <p class="text-gray-600 text-sm">अध्ययन वर्ग, खेल, और चर्चाओं के माध्यम से निरंतर जुड़ाव बनाए
+                            रखना।</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 (Right) -->
+                <div class="relative z-10 flex items-center justify-between md:justify-normal w-full mb-12">
+                    <div class="hidden md:block md:w-1/2"></div>
+                    <div
+                        class="absolute left-[24px] md:left-1/2 transform -translate-x-1/2 w-10 h-10 bg-saffron rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold">
+                        4</div>
+                    <div class="ml-16 md:ml-0 md:w-1/2 md:pl-12">
+                        <div
+                            class="bg-slate-50 md:bg-transparent p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-slate-100 md:border-none">
+                            <h3 class="text-xl md:text-2xl font-bold text-navy mb-2">नेतृत्व विकास</h3>
+                            <p class="text-gray-600 text-sm md:text-base">जिम्मेदारियाँ सौंपकर उनमें आत्मविश्वास और
+                                निर्णय लेने की क्षमता विकसित करना।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 (Left) -->
+                <div class="relative z-10 flex items-center justify-between md:justify-normal w-full mb-12">
+                    <div class="hidden md:block md:w-1/2 pr-12 text-right">
+                        <h3 class="text-2xl font-bold text-navy mb-2">समाज सेवा</h3>
+                        <p class="text-gray-600">प्राप्त कौशल और विचारों का उपयोग करते हुए जमीनी स्तर पर सेवा कार्यों
+                            में लगना।</p>
+                    </div>
+                    <div
+                        class="absolute left-[24px] md:left-1/2 transform -translate-x-1/2 w-10 h-10 bg-saffron rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold">
+                        5</div>
+                    <div class="ml-16 md:hidden w-full bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <h3 class="text-xl font-bold text-navy mb-2">समाज सेवा</h3>
+                        <p class="text-gray-600 text-sm">प्राप्त कौशल और विचारों का उपयोग करते हुए जमीनी स्तर पर सेवा
+                            कार्यों में लगना।</p>
+                    </div>
+                </div>
+
+                <!-- Step 6 (Right - Final) -->
+                <div class="relative z-10 flex items-center justify-between md:justify-normal w-full">
+                    <div class="hidden md:block md:w-1/2"></div>
+                    <div
+                        class="absolute left-[24px] md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white text-xl">
+                        🚩</div>
+                    <div class="ml-16 md:ml-0 md:w-1/2 md:pl-12">
+                        <div
+                            class="bg-orange-50 md:bg-transparent p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-orange-100 md:border-none">
+                            <h3 class="text-xl md:text-3xl font-extrabold text-navy mb-2">राष्ट्र निर्माण</h3>
+                            <p class="text-gray-800 font-medium text-sm md:text-base">व्यक्ति निर्माण से समाज निर्माण,
+                                और समाज निर्माण से एक सशक्त राष्ट्र का निर्माण।</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- 5. प्रमुख विशेषताएँ (Key Features - 6 Icon Cards) -->
+    <!-- 5. प्रमुख विशेषताएँ (Key Features - 6 Icon Cards) -->
+    <section class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-navy mb-4">हमारी प्रमुख <span
+                        class="text-saffron">विशेषताएँ</span></h2>
+                <p class="text-gray-600 text-lg">वे मूल तत्व जो हमारे संगठन और कार्यकर्ताओं को विशिष्ट बनाते हैं।</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
+
+                <!-- Feature 1: अनुशासन -->
+                <div
+                    class="bg-white p-6 rounded-[20px] text-center shadow-md hover:shadow-xl transition-all duration-300 group border border-slate-100 cursor-pointer">
+                    <!-- Fixed: Removed group-hover:bg-navy group-hover:text-white -->
+                    <div
+                        class="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-md text-navy">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy">अनुशासन</h3>
+                </div>
+
+                <!-- Feature 2: संगठन -->
+                <div
+                    class="bg-white p-6 rounded-[20px] text-center shadow-md hover:shadow-xl transition-all duration-300 group border border-slate-100 cursor-pointer">
+                    <div
+                        class="w-16 h-16 mx-auto bg-orange-50 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-md text-saffron">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy">संगठन</h3>
+                </div>
+
+                <!-- Feature 3: सेवा -->
+                <div
+                    class="bg-white p-6 rounded-[20px] text-center shadow-md hover:shadow-xl transition-all duration-300 group border border-slate-100 cursor-pointer">
+                    <div
+                        class="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-md text-navy">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy">सेवा</h3>
+                </div>
+
+                <!-- Feature 4: संस्कार -->
+                <div
+                    class="bg-white p-6 rounded-[20px] text-center shadow-md hover:shadow-xl transition-all duration-300 group border border-slate-100 cursor-pointer">
+                    <div
+                        class="w-16 h-16 mx-auto bg-orange-50 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-md text-saffron">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy">संस्कार</h3>
+                </div>
+
+                <!-- Feature 5: नेतृत्व -->
+                <div
+                    class="bg-white p-6 rounded-[20px] text-center shadow-md hover:shadow-xl transition-all duration-300 group border border-slate-100 cursor-pointer">
+                    <div
+                        class="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-md text-navy">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy">नेतृत्व</h3>
+                </div>
+
+                <!-- Feature 6: टीमवर्क -->
+                <div
+                    class="bg-white p-6 rounded-[20px] text-center shadow-md hover:shadow-xl transition-all duration-300 group border border-slate-100 cursor-pointer">
+                    <div
+                        class="w-16 h-16 mx-auto bg-orange-50 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-md text-saffron">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy">टीमवर्क</h3>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- 6. कार्य क्षेत्र (Work Areas / Impact Cards) -->
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-navy mb-4">हमारा <span class="text-saffron">कार्य
+                        क्षेत्र</span></h2>
+                <p class="text-gray-600 text-lg">संपूर्ण देश में युवाओं को संगठित कर राष्ट्र निर्माण का एक व्यापक
+                    नेटवर्क।</p>
+            </div>
+
+            <!-- Impact Numbers / Work Area Cards -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div
+                    class="bg-navy rounded-[24px] p-8 text-center text-white shadow-xl transform hover:-translate-y-2 transition duration-300 border-b-4 border-saffron">
+                    <div class="text-4xl lg:text-5xl font-extrabold text-saffron mb-2">500+</div>
+                    <div class="text-lg font-medium text-gray-500">महाविद्यालय</div>
+                </div>
+                <div
+                    class="bg-white rounded-[24px] p-8 text-center text-navy shadow-xl border border-slate-100 transform hover:-translate-y-2 transition duration-300 border-b-4 border-navy">
+                    <div class="text-4xl lg:text-5xl font-extrabold text-navy mb-2">10k+</div>
+                    <div class="text-lg font-medium text-gray-500">सक्रिय विद्यार्थी</div>
+                </div>
+                <div
+                    class="bg-navy rounded-[24px] p-8 text-center text-white shadow-xl transform hover:-translate-y-2 transition duration-300 border-b-4 border-saffron">
+                    <div class="text-4xl lg:text-5xl font-extrabold text-saffron mb-2">100+</div>
+                    <div class="text-lg font-medium text-gray-500">वार्षिक कार्यक्रम</div>
+                </div>
+                <div
+                    class="bg-white rounded-[24px] p-8 text-center text-navy shadow-xl border border-slate-100 transform hover:-translate-y-2 transition duration-300 border-b-4 border-navy">
+                    <div class="text-4xl lg:text-5xl font-extrabold text-navy mb-2">50+</div>
+                    <div class="text-lg font-medium text-gray-500">सेवा गतिविधियाँ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. प्रेरणादायक संदेश (Inspirational Quote Section) -->
+    <section class="relative py-24 bg-fixed bg-center bg-cover"
+        style="background-image: url('https://images.unsplash.com/photo-1532375810709-75b1da00537c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        <div class="absolute inset-0 bg-navy/80"></div>
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <svg class="w-16 h-16 text-saffron mx-auto mb-6 opacity-80" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z">
+                </path>
+            </svg>
+            <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-8">
+                "युवा शक्ति ही राष्ट्र की सबसे बड़ी शक्ति है।"
+            </h2>
+            <div class="w-24 h-1 bg-saffron mx-auto rounded-full mb-6"></div>
+            <p class="text-blue-200 text-lg md:text-xl font-medium tracking-wider">महाविद्यालयीन कार्य का मूल मंत्र</p>
+        </div>
+    </section>
+
+    <!-- 8. FAQ (Frequently Asked Questions) -->
+    <section class="py-24 bg-slate-50 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-navy mb-4">सामान्य <span class="text-saffron">प्रश्न
+                        (FAQ)</span></h2>
+                <p class="text-gray-600 text-lg">संगठन और कार्यपद्धति से जुड़े कुछ सामान्य सवालों के जवाब।</p>
+            </div>
+
+            <!-- Accordion Style FAQ -->
+            <div class="space-y-4">
+                <!-- Q1 -->
+                <details
+                    class="group bg-white rounded-2xl shadow-sm border border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+                    <summary
+                        class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-navy font-bold text-lg">
+                        महाविद्यालयीन कार्य क्या है?
+                        <span
+                            class="shrink-0 rounded-full bg-orange-50 p-1.5 text-saffron group-open:-rotate-180 transition duration-300">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        यह राष्ट्रीय स्वयंसेवक संघ का एक प्रकल्प है, जिसका उद्देश्य कॉलेज के छात्रों को संगठित कर उनमें
+                        राष्ट्र प्रेम, अनुशासन और नेतृत्व क्षमता का विकास करना है।
+                    </p>
+                </details>
+                <!-- Q2 -->
+                <details
+                    class="group bg-white rounded-2xl shadow-sm border border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+                    <summary
+                        class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-navy font-bold text-lg">
+                        इसमें कौन भाग ले सकता है?
+                        <span
+                            class="shrink-0 rounded-full bg-orange-50 p-1.5 text-saffron group-open:-rotate-180 transition duration-300">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        किसी भी महाविद्यालय या विश्वविद्यालय में पढ़ने वाला कोई भी विद्यार्थी जो राष्ट्र
+                        निर्माण और समाज सेवा में रुचि रखता है, इस कार्य से जुड़ सकता है। और आयु 15 से 35 वर्ष तक का युवा
+                        ।
+                    </p>
+                </details>
+                <!-- Q3 -->
+                <details
+                    class="group bg-white rounded-2xl shadow-sm border border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+                    <summary
+                        class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-navy font-bold text-lg">
+                        गतिविधियाँ कितनी बार होती हैं?
+                        <span
+                            class="shrink-0 rounded-full bg-orange-50 p-1.5 text-saffron group-open:-rotate-180 transition duration-300">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        गतिविधियों की प्रकृति के आधार पर यह अलग-अलग हो सकता है। शाखाएँ दैनिक या साप्ताहिक हो सकती हैं,
+                        जबकि अध्ययन वर्ग और शिविर मासिक या वार्षिक आधार पर आयोजित किए जाते हैं।
+                    </p>
+                </details>
+                <!-- Q4 -->
+                <details
+                    class="group bg-white rounded-2xl shadow-sm border border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+                    <summary
+                        class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-navy font-bold text-lg">
+                        किन क्षेत्रों में कार्य होता है?
+                        <span
+                            class="shrink-0 rounded-full bg-orange-50 p-1.5 text-saffron group-open:-rotate-180 transition duration-300">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        हम मुख्य रूप से बौद्धिक विकास, शारीरिक सौष्ठव, सेवा कार्य (जैसे पर्यावरण संरक्षण, बस्ती विकास),
+                        और सांस्कृतिक कार्यक्रमों के क्षेत्र में कार्य करते हैं।
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Call to Explore (Explore More) -->
+    <section class="py-20 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-extrabold text-navy mb-8">हमारे कार्यों को विस्तार से जानें</h2>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="#"
+                    class="w-full sm:w-auto bg-saffron text-white px-10 py-4 rounded-full font-bold text-lg transition duration-300 shadow-lg shadow-orange-500/40 hover:-translate-y-1 hover:bg-orange-500">
+                    गतिविधियाँ देखें
+                </a>
+                <a href="#"
+                    class="w-full sm:w-auto bg-white text-navy border-2 border-slate-200 px-10 py-4 rounded-full font-bold text-lg transition duration-300 shadow-sm hover:-translate-y-1 hover:border-orange-400 hover:text-saffron">
+                    समाचार पढ़ें
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Footer (प्रीमियम फुटर - Same as Home Page) -->
+    <footer class="bg-[#1e3a8a] text-white pt-16 pb-8 border-t-4 border-saffron">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+                <!-- Logo & About -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div
+                            class="w-10 h-10 bg-saffron rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            ॐ
+                        </div>
+                        <span class="font-bold text-2xl tracking-tight text-white">महाविद्यालयीन कार्य</span>
+                    </div>
+                    <p class="text-blue-200 text-sm leading-relaxed">
+                        युवा शक्ति के माध्यम से राष्ट्र निर्माण की दिशा में सतत प्रयास। महाविद्यालयीन कार्य कॉलेज के
+                        युवाओं को समाज सेवा और नेतृत्व से जोड़ने का एक प्रकल्प है।
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-saffron">महत्वपूर्ण लिंक्स (Quick Links)</h4>
+                    <ul class="space-y-3 text-blue-200 text-sm">
+                        <li><a href="#"
+                                class="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">Home</a>
+                        </li>
+                        <li><a href="#"
+                                class="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">हमारे
+                                बारे में</a></li>
+                        <li><a href="#"
+                                class="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">गतिविधियाँ</a>
+                        </li>
+                        <li><a href="#"
+                                class="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">समाचार</a>
+                        </li>
+                        <li><a href="#"
+                                class="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">गैलरी</a>
+                        </li>
+                        <li><a href="#"
+                                class="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">संपर्क</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Footer Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-saffron">संपर्क करें</h4>
+                    <ul class="space-y-3 text-blue-200 text-sm">
+                        <li class="flex items-center gap-2">
+                            <span>📍</span> 123, संघ भवन मार्ग, नई दिल्ली
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span>📞</span> +91 98765 43210
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span>✉️</span> contact@mahavidyalayeenkarya.org
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright Line -->
+            <div
+                class="border-t border-blue-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-blue-300 text-xs">
+                <p>&copy; 2026 महाविद्यालयीन कार्य | राष्ट्रीय स्वयंसेवक संघ. सर्वाधिकार सुरक्षित (All Rights Reserved).
+                </p>
+                <div class="mt-4 md:mt-0 flex gap-4">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu'); // आपका वो वाला div जो मैंने पहले बताया था
+
+        btn.addEventListener('click', () => {
+            // यह मोबाइल मेनू को दिखाएगा या छुपाएगा
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
