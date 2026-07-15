@@ -60,57 +60,55 @@
 
 <body class="bg-slate-50 antialiased overflow-x-hidden relative text-gray-800">
 
-    <!-- 1. Premium Glass Navigation Bar -->
     <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Parent Flex Box -->
+        <div class="flex justify-between items-center h-20">
 
-                <!-- Left: Logo & Brand Name -->
-                <div class="flex items-center gap-3 cursor-pointer">
-                    <div
-                        class="w-8 h-8 md:w-10 md:h-10 bg-saffron rounded-full flex items-center justify-center text-white font-bold text-lg md:text-xl shrink-0">
-                        ॐ
-                    </div>
-                    <span class="font-bold text-lg sm:text-xl md:text-2xl text-navy tracking-tight truncate">महाविद्यालयीन कार्य</span>
+            <!-- Left: Logo & Brand Name -->
+            <!-- shrink-0 जोड़ा गया है ताकि जगह कम होने पर लोगो दबे नहीं -->
+            <div class="flex items-center gap-2 md:gap-3 cursor-pointer shrink-0">
+                <!-- मोबाइल पर w-8 h-8 और डेस्कटॉप पर w-10 h-10 -->
+                <div class="w-8 h-8 md:w-10 md:h-10 bg-saffron rounded-full flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-lg shadow-orange-500/40 shrink-0">
+                    ॐ
                 </div>
-
-                <!-- Center: Navigation Links (Desktop) -->
-                <div class="hidden md:flex space-x-8 items-center font-medium">
-                    <a href="#" class="text-saffron border-b-2 border-saffron pb-1">Home</a>
-                    <a href="about.html" class="text-gray-600 hover:text-saffron transition duration-300">हमारे बारे
-                        में</a>
-                    <a href="activities.html"
-                        class="text-gray-600 hover:text-saffron transition duration-300">गतिविधियाँ</a>
-                    <a href="news.html" class="text-gray-600 hover:text-saffron transition duration-300">समाचार</a>
-                    <a href="#" class="text-gray-600 hover:text-saffron transition duration-300">गैलरी</a>
-                    <a href="#" class="text-gray-600 hover:text-saffron transition duration-300">संपर्क</a>
-                </div>
-                <!-- यह कोड Navbar के भीतर ही, </nav> से ठीक पहले रखें -->
-                <div id="mobile-menu"
-                    class="hidden md:hidden bg-white border-t border-slate-200 p-4 shadow-lg absolute w-full left-0 top-20">
-                    <a href="index.html" class="block py-2 text-gray-600 hover:text-saffron">Home</a>
-                    <a href="about.html" class="block py-2 text-gray-600 hover:text-saffron">हमारे बारे में</a>
-                    <a href="activities.html" class="block py-2 text-gray-600 hover:text-saffron">गतिविधियाँ</a>
-                    <a href="news.html" class="block py-2 text-gray-600 hover:text-saffron">समाचार</a>
-                    <a href="gallery.html" class="block py-2 text-gray-600 hover:text-saffron">गैलरी</a>
-                    <a href="contact.html" class="block py-2 text-gray-600 hover:text-saffron">संपर्क</a>
-                </div>
-                <!-- Right: Mobile Menu Icon (No Login Button as requested) -->
-                <!-- यह कोड Navbar के भीतर ही, </nav> से ठीक पहले रखें -->
-                <!-- Right: Mobile Menu Icon -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-600 focus:outline-none">
-                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16m-7 6h7" />
-                        </svg>
-                    </button>
-                </div>
+                <!-- मोबाइल पर text-lg और डेस्कटॉप पर text-2xl -->
+                <span class="font-bold text-lg sm:text-xl md:text-2xl text-navy tracking-tight truncate">महाविद्यालयीन कार्य</span>
             </div>
-        </div>
-    </nav>
 
-    <!-- 2. Hero Section -->
+            <!-- Center: Navigation Links (Desktop) -->
+            <div class="hidden md:flex space-x-8 items-center font-medium">
+                <a href="#" class="text-saffron border-b-2 border-saffron pb-1">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-saffron transition duration-300">हमारे बारे में</a>
+                <a href="activities.html" class="text-gray-600 hover:text-saffron transition duration-300">गतिविधियाँ</a>
+                <a href="news.html" class="text-gray-600 hover:text-saffron transition duration-300">समाचार</a>
+                <a href="gallery.html" class="text-gray-600 hover:text-saffron transition duration-300">गैलरी</a>
+                <a href="contact.html" class="text-gray-600 hover:text-saffron transition duration-300">संपर्क</a>
+            </div>
+
+            <!-- Right: Mobile Menu Icon -->
+            <div class="md:hidden flex items-center shrink-0">
+                <button id="mobile-menu-btn" class="text-gray-600 hover:text-saffron focus:outline-none transition">
+                    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown (इसे Flexbox के बाहर रखा गया है) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 p-4 shadow-lg absolute w-full left-0 top-20">
+        <a href="index.html" class="block py-2 text-gray-600 hover:text-saffron">Home</a>
+        <a href="about.html" class="block py-2 text-gray-600 hover:text-saffron">हमारे बारे में</a>
+        <a href="activities.html" class="block py-2 text-gray-600 hover:text-saffron">गतिविधियाँ</a>
+        <a href="news.html" class="block py-2 text-gray-600 hover:text-saffron">समाचार</a>
+        <a href="gallery.html" class="block py-2 text-gray-600 hover:text-saffron">गैलरी</a>
+        <a href="contact.html" class="block py-2 text-gray-600 hover:text-saffron">संपर्क</a>
+    </div>
+</nav>    <!-- 2. Hero Section -->
     <section
         class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-gradient-to-br from-white to-orange-50">
 
