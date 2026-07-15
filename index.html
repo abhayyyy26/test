@@ -61,59 +61,74 @@
 <body class="bg-slate-50 antialiased overflow-x-hidden relative text-gray-800">
 
     <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <!-- Main Navbar Container -->
-        <div class="flex justify-between items-center h-20 gap-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- 1. Left: Logo & Brand Name -->
-            <!-- flex-1 min-w-0 जोड़ने से यह बॉक्स स्क्रीन के हिसाब से एडजस्ट होगा और बटन को बाहर नहीं धकेलेगा -->
-            <div class="flex items-center gap-2 cursor-pointer flex-1 min-w-0">
-                
-                <!-- Logo Icon (shrink-0 ताकि यह गोल ही रहे, दबे नहीं) -->
-                <div class="w-9 h-9 md:w-10 md:h-10 bg-saffron rounded-full flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-lg shrink-0">
-                    ॐ
+            <!-- Main Navbar Container -->
+            <div class="flex justify-between items-center h-20 gap-4">
+
+                <!-- 1. Left: Logo & Brand Name -->
+                <!-- flex-1 min-w-0 जोड़ने से यह बॉक्स स्क्रीन के हिसाब से एडजस्ट होगा और बटन को बाहर नहीं धकेलेगा -->
+                <div class="flex items-center gap-2 cursor-pointer flex-1 min-w-0">
+
+                    <!-- Logo Icon (shrink-0 ताकि यह गोल ही रहे, दबे नहीं) -->
+                    <div
+                        class="w-9 h-9 md:w-10 md:h-10 bg-saffron rounded-full flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-lg shrink-0">
+                        ॐ
+                    </div>
+
+                    <!-- Text (truncate क्लास अब सही से काम करेगी अगर स्क्रीन बहुत छोटी हुई) -->
+                    <span class="font-bold text-[1.1rem] sm:text-xl md:text-2xl text-navy tracking-tight truncate">
+                        महाविद्यालयीन कार्य
+                    </span>
                 </div>
-                
-                <!-- Text (truncate क्लास अब सही से काम करेगी अगर स्क्रीन बहुत छोटी हुई) -->
-                <span class="font-bold text-[1.1rem] sm:text-xl md:text-2xl text-navy tracking-tight truncate">
-                    महाविद्यालयीन कार्य
-                </span>
-            </div>
 
-            <!-- 2. Center: Navigation Links (Desktop) -->
-            <div class="hidden md:flex space-x-8 items-center font-medium shrink-0">
-                <a href="#" class="text-saffron border-b-2 border-saffron pb-1">Home</a>
-                <a href="about.html" class="text-gray-600 hover:text-saffron transition duration-300">हमारे बारे में</a>
-                <a href="activities.html" class="text-gray-600 hover:text-saffron transition duration-300">गतिविधियाँ</a>
-                <a href="news.html" class="text-gray-600 hover:text-saffron transition duration-300">समाचार</a>
-                <a href="gallery.html" class="text-gray-600 hover:text-saffron transition duration-300">गैलरी</a>
-                <a href="contact.html" class="text-gray-600 hover:text-saffron transition duration-300">संपर्क</a>
-            </div>
+                <!-- 2. Center: Navigation Links (Desktop) -->
+                <div class="hidden md:flex space-x-8 items-center font-medium shrink-0">
+                    <a href="#" class="text-saffron border-b-2 border-saffron pb-1">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-saffron transition duration-300">हमारे बारे
+                        में</a>
+                    <a href="activities.html"
+                        class="text-gray-600 hover:text-saffron transition duration-300">गतिविधियाँ</a>
+                    <a href="news.html" class="text-gray-600 hover:text-saffron transition duration-300">समाचार</a>
+                    <a href="gallery.html" class="text-gray-600 hover:text-saffron transition duration-300">गैलरी</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-saffron transition duration-300">संपर्क</a>
+                    <a href="join.html"
+                        class="hidden md:flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white rounded-full font-bold hover:shadow-lg hover:scale-105 transition-all duration-300 shrink-0 ml-4">
+                        <span>🚩</span> हमसे जुड़ें
+                    </a>
+                </div>
 
-            <!-- 3. Right: Mobile Menu Icon -->
-            <!-- shrink-0 ताकि बटन अपनी जगह पर फिक्स रहे और स्क्रीन के अंदर ही दिखे -->
-            <div class="md:hidden flex items-center shrink-0">
-                <button id="mobile-menu-btn" class="text-navy hover:text-saffron focus:outline-none transition">
-                    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-                </button>
+                <!-- 3. Right: Mobile Menu Icon -->
+                <!-- shrink-0 ताकि बटन अपनी जगह पर फिक्स रहे और स्क्रीन के अंदर ही दिखे -->
+                <div class="md:hidden flex items-center shrink-0">
+                    <button id="mobile-menu-btn" class="text-navy hover:text-saffron focus:outline-none transition">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+
             </div>
-            
         </div>
-    </div>
 
-    <!-- Mobile Menu Dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 p-4 shadow-lg absolute w-full left-0 top-20">
-        <a href="index.html" class="block py-2 text-navy font-medium hover:text-saffron">Home</a>
-        <a href="about.html" class="block py-2 text-navy font-medium hover:text-saffron">हमारे बारे में</a>
-        <a href="activities.html" class="block py-2 text-navy font-medium hover:text-saffron">गतिविधियाँ</a>
-        <a href="news.html" class="block py-2 text-navy font-medium hover:text-saffron">समाचार</a>
-        <a href="gallery.html" class="block py-2 text-navy font-medium hover:text-saffron">गैलरी</a>
-        <a href="contact.html" class="block py-2 text-navy font-medium hover:text-saffron">संपर्क</a>
-    </div>
-</nav>   <!-- 2. Hero Section -->
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-t border-slate-200 p-4 shadow-lg absolute w-full left-0 top-20">
+            <div class="px-4 pt-4 pb-2">
+                <a href="join.html"
+                    class="block w-full py-3 bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white text-center rounded-xl font-bold shadow-md hover:scale-[1.02] transition">
+                    🚩 हमसे जुड़ें
+                </a>
+            </div>
+            <a href="index.html" class="block py-2 text-navy font-medium hover:text-saffron">Home</a>
+            <a href="about.html" class="block py-2 text-navy font-medium hover:text-saffron">हमारे बारे में</a>
+            <a href="activities.html" class="block py-2 text-navy font-medium hover:text-saffron">गतिविधियाँ</a>
+            <a href="news.html" class="block py-2 text-navy font-medium hover:text-saffron">समाचार</a>
+            <a href="gallery.html" class="block py-2 text-navy font-medium hover:text-saffron">गैलरी</a>
+            <a href="contact.html" class="block py-2 text-navy font-medium hover:text-saffron">संपर्क</a>
+        </div>
+    </nav> <!-- 2. Hero Section -->
     <section
         class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-gradient-to-br from-white to-orange-50">
 
@@ -151,14 +166,14 @@
                     <!-- Buttons -->
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
                         <!-- Primary Button -->
-                        <a href="#"
+                        <a href="about.html"
                             class="w-full sm:w-auto bg-saffron text-white px-8 py-3.5 rounded-full font-semibold text-center transition duration-300 shadow-lg shadow-orange-500/40 hover:-translate-y-1 hover:bg-orange-500">
                             हमारे बारे में
                         </a>
                         <!-- Secondary Button -->
-                        <a href="#"
-                            class="w-full sm:w-auto bg-white text-navy border-2 border-slate-200 px-8 py-3.5 rounded-full font-semibold text-center transition duration-300 shadow-sm hover:-translate-y-1 hover:border-orange-400 hover:text-saffron">
-                            गतिविधियाँ देखें
+                        <a href="join.html"
+                            class="bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white px-8 py-3 rounded-full font-bold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center gap-2">
+                            <span>🚩</span> हमसे जुड़ें
                         </a>
                     </div>
                 </div>
@@ -242,6 +257,16 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+    <section class="py-12 bg-orange-50 border-y border-orange-100 text-center">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <h3 class="text-xl md:text-2xl font-bold text-navy">क्या आप महाविद्यालयीन कार्य को और निकट से जानना चाहते
+                हैं?</h3>
+            <a href="join.html"
+                class="bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white px-8 py-3 rounded-full font-bold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center gap-2 shrink-0">
+                <span>🚩</span> हमसे जुड़ें
+            </a>
         </div>
     </section>
 
@@ -646,13 +671,14 @@
                                 </svg>
                             </div>
                             <div>
-    <h4 class="text-lg font-bold text-navy">संपर्क सूत्र</h4>
-    <p class="text-gray-600 mt-1">+91 98765 43210</p>
-    <!-- ईमेल को लिंक बना दिया गया है और break-all लगा दिया गया है -->
-    <a href="mailto:contact@mahavidyalayeenkarya.org" class="text-gray-600 hover:text-saffron transition break-all mt-1 inline-block">
-        contact@mahavidyalayeenkarya.org
-    </a>
-</div>
+                                <h4 class="text-lg font-bold text-navy">संपर्क सूत्र</h4>
+                                <p class="text-gray-600 mt-1">+91 98765 43210</p>
+                                <!-- ईमेल को लिंक बना दिया गया है और break-all लगा दिया गया है -->
+                                <a href="mailto:contact@mahavidyalayeenkarya.org"
+                                    class="text-gray-600 hover:text-saffron transition break-all mt-1 inline-block">
+                                    contact@mahavidyalayeenkarya.org
+                                </a>
+                            </div>
                         </div>
 
                         <!-- Timings -->
@@ -686,6 +712,24 @@
     </section>
 
     <!-- 9. Footer (प्रीमियम फुटर) -->
+    <!-- Bottom CTA Banner -->
+    <section class="py-16 bg-gradient-to-br from-navy to-slate-900 text-center relative overflow-hidden">
+        <!-- Background Decor -->
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-saffron rounded-full blur-[80px] opacity-20"></div>
+        <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500 rounded-full blur-[80px] opacity-20"></div>
+
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <!-- पेज के अनुसार यहाँ टेक्स्ट बदलें 👇 -->
+            <h2 class="text-3xl md:text-4xl font-extrabold  mb-8 leading-tight">
+                युवा शक्ति के साथ राष्ट्र निर्माण की इस यात्रा का हिस्सा बनें।
+            </h2>
+
+            <a href="join.html"
+                class="inline-flex items-center gap-2 bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-[0_10px_20px_rgba(249,115,22,0.3)] hover:scale-105 transition-all duration-300">
+                <span class="text-xl">🚩</span> हमसे जुड़ें
+            </a>
+        </div>
+    </section>
     <footer class="bg-[#1e3a8a] text-white pt-16 pb-8 border-t-4 border-saffron">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">

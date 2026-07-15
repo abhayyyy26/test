@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Requests | Management Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+        }
+
+        .bg-saffron {
+            background-color: #F97316;
+        }
+
+        .text-saffron {
+            color: #F97316;
+        }
+
+        .bg-navy {
+            background-color: #0F172A;
+        }
+
+        /* Premium Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 h-screen flex overflow-hidden">
+
+    <aside id="sidebar" class="bg-navy w-64 h-full flex flex-col transition-all duration-300 z-20 shrink-0">
+        <!-- Sidebar Header -->
+        <div class="h-16 flex items-center px-6 border-b border-slate-800">
+            <div
+                class="w-8 h-8 bg-saffron rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">
+                ॐ</div>
+            <span class="text-white font-bold tracking-wide whitespace-nowrap overflow-hidden">Portal Admin</span>
+        </div>
+
+        <!-- Sidebar Links -->
+        <div class="flex-1 overflow-y-auto py-6 px-4 space-y-2">
+            <a href="dashboard.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">🏠</span> Dashboard</a>
+            <a href="events.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">📅</span> Events</a>
+
+            <!-- Active Menu: Join Requests -->
+            <a href="join-requests.html"
+                class="flex items-center px-4 py-3 bg-saffron/10 text-saffron rounded-[12px] font-semibold transition"><span
+                    class="mr-3 text-lg">📥</span> Join Requests</a>
+
+            <a href="news.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">📰</span> News</a>
+            <a href="gallery.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">🖼️</span> Gallery</a>
+            <a href="attendance.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">📋</span> Attendance</a>
+            <a href="reports.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">📝</span> Reports</a>
+            <a href="documents.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">📂</span> Documents</a>
+            <a href="cms.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">🌐</span> Website CMS</a>
+        </div>
+
+        <!-- Settings -->
+        <div class="p-4 border-t border-slate-800">
+            <a href="settings.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">⚙️</span> Settings</a>
+        </div>
+    </aside>
+
+    <!-- ==========================================
+         MAIN CONTENT AREA
+    =========================================== -->
+    <main class="flex-1 flex flex-col h-full relative overflow-hidden">
+
+        <!-- Header -->
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 md:px-6 shrink-0">
+            <div class="flex items-center gap-3">
+                <button id="toggle-sidebar" class="text-slate-500 hover:text-saffron transition focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <div>
+                    <h1 class="text-xl font-bold text-navy">📥 Join Requests</h1>
+                    <p class="text-xs text-slate-500 hidden md:block">सभी इच्छुक व्यक्तियों की जानकारी (Lead Management)
+                    </p>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="alert('Excel Exported!')"
+                    class="bg-green-50 text-green-700 px-4 py-2 rounded-xl font-semibold hover:bg-green-100 transition text-sm flex items-center gap-2">
+                    <span class="hidden md:inline">📄 Export Excel</span><span class="md:hidden">📄</span>
+                </button>
+                <button onclick="alert('Printing...')"
+                    class="bg-slate-50 text-slate-600 px-4 py-2 rounded-xl font-semibold hover:bg-slate-100 transition border border-slate-200 text-sm flex items-center gap-2">
+                    <span class="hidden md:inline">🖨 Print</span><span class="md:hidden">🖨</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Scrollable Area -->
+        <div class="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
+
+            <!-- 1. Statistics Cards -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-orange-100">
+                    <div class="flex justify-between items-start">
+                        <p class="text-slate-500 text-sm font-medium">New Requests</p><span
+                            class="text-orange-500 bg-orange-50 w-8 h-8 rounded-full flex items-center justify-center">🟠</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy mt-2">18</h3>
+                </div>
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-blue-100">
+                    <div class="flex justify-between items-start">
+                        <p class="text-slate-500 text-sm font-medium">Contacted</p><span
+                            class="text-blue-500 bg-blue-50 w-8 h-8 rounded-full flex items-center justify-center">🔵</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy mt-2">35</h3>
+                </div>
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-green-100">
+                    <div class="flex justify-between items-start">
+                        <p class="text-slate-500 text-sm font-medium">Joined</p><span
+                            class="text-green-500 bg-green-50 w-8 h-8 rounded-full flex items-center justify-center">🟢</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy mt-2">15</h3>
+                </div>
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-red-100">
+                    <div class="flex justify-between items-start">
+                        <p class="text-slate-500 text-sm font-medium">Closed</p><span
+                            class="text-red-500 bg-red-50 w-8 h-8 rounded-full flex items-center justify-center">🔴</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy mt-2">08</h3>
+                </div>
+            </div>
+
+            <!-- 2. Search & Filters -->
+            <div
+                class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex flex-wrap gap-4 items-center justify-between">
+                <div class="flex flex-wrap gap-3 flex-1">
+                    <div class="relative w-full md:w-64">
+                        <span class="absolute left-3 top-2 text-slate-400">🔍</span>
+                        <input type="text" placeholder="Search Name/Mobile"
+                            class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-saffron">
+                    </div>
+
+                    <select
+                        class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm text-slate-600 focus:outline-none">
+                        <option>Status Filter</option>
+                        <option>New</option>
+                        <option>Contacted</option>
+                        <option>Joined</option>
+                        <option>Closed</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 3. Desktop Table View -->
+            <div class="hidden md:block bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 text-slate-500 text-sm">
+                            <th class="p-4 font-semibold">Name</th>
+                            <th class="p-4 font-semibold">Mobile</th>
+                            <th class="p-4 font-semibold">District</th>
+                            <th class="p-4 font-semibold">Status</th>
+                            <th class="p-4 font-semibold">Date</th>
+                            <th class="p-4 font-semibold text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm text-slate-700 divide-y divide-slate-100">
+                        <tr class="hover:bg-slate-50 transition cursor-pointer" onclick="openDrawer('new')">
+                            <td class="p-4 font-bold text-navy">राहुल शर्मा</td>
+                            <td class="p-4">+91 9876543210</td>
+                            <td class="p-4">भोपाल</td>
+                            <td class="p-4"><span
+                                    class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-bold">New</span>
+                            </td>
+                            <td class="p-4">15 July 2026</td>
+                            <td class="p-4 text-center"><button class="text-saffron hover:underline font-semibold">👁
+                                    View</button></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition cursor-pointer" onclick="openDrawer('contacted')">
+                            <td class="p-4 font-bold text-navy">अमित वर्मा</td>
+                            <td class="p-4">+91 9123456780</td>
+                            <td class="p-4">इंदौर</td>
+                            <td class="p-4"><span
+                                    class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold">Contacted</span>
+                            </td>
+                            <td class="p-4">12 July 2026</td>
+                            <td class="p-4 text-center"><button class="text-saffron hover:underline font-semibold">👁
+                                    View</button></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition cursor-pointer" onclick="openDrawer('joined')">
+                            <td class="p-4 font-bold text-navy">सुमित सिंह</td>
+                            <td class="p-4">+91 9988776655</td>
+                            <td class="p-4">ग्वालियर</td>
+                            <td class="p-4"><span
+                                    class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Joined</span>
+                            </td>
+                            <td class="p-4">10 July 2026</td>
+                            <td class="p-4 text-center"><button class="text-saffron hover:underline font-semibold">👁
+                                    View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 4. Mobile Cards View -->
+            <div class="md:hidden grid grid-cols-1 gap-4">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex flex-col gap-3"
+                    onclick="openDrawer('new')">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-navy text-lg">राहुल शर्मा</h3>
+                            <p class="text-slate-500 text-sm">📍 भोपाल</p>
+                        </div>
+                        <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-bold">New</span>
+                    </div>
+                    <div class="flex justify-between items-center border-t border-slate-50 pt-3">
+                        <span class="text-sm font-medium text-slate-600">📱 +91 9876543210</span>
+                        <button class="text-saffron text-sm font-bold">👁 Details</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ==========================================
+         5. THE SLIDE-OVER DRAWER (Lead Details)
+    =========================================== -->
+    <div id="request-drawer"
+        class="fixed inset-y-0 right-0 w-full md:w-[500px] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50 flex flex-col border-l border-slate-200">
+
+        <!-- Drawer Header -->
+        <div class="p-6 border-b border-slate-100 bg-slate-50 flex justify-between items-start shrink-0">
+            <div>
+                <div class="flex items-center gap-3 mb-1">
+                    <h2 class="text-2xl font-bold text-navy">राहुल शर्मा</h2>
+                    <span id="drawer-badge"
+                        class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded text-xs font-bold">New</span>
+                </div>
+                <p class="text-sm text-slate-500">Submitted: 15 July 2026</p>
+                <!-- Duplicate Warning (Simulated) -->
+                <div
+                    class="mt-3 bg-red-50 text-red-600 text-xs font-bold px-3 py-2 rounded-lg border border-red-100 flex items-center gap-2">
+                    ⚠ यह व्यक्ति पहले भी Form भर चुका है।
+                </div>
+            </div>
+            <button onclick="closeDrawer()"
+                class="text-slate-400 hover:text-red-500 transition text-2xl leading-none">&times;</button>
+        </div>
+
+        <!-- Quick Actions (WhatsApp & Call) -->
+        <div class="flex gap-2 p-4 border-b border-slate-100 bg-white shrink-0">
+            <a href="https://wa.me/919876543210" target="_blank"
+                class="flex-1 bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white border border-[#25D366]/20 py-2 rounded-xl text-center font-bold text-sm transition-all flex justify-center items-center gap-2">
+                💬 WhatsApp
+            </a>
+            <a href="tel:+919876543210"
+                class="flex-1 bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white border border-blue-100 py-2 rounded-xl text-center font-bold text-sm transition-all flex justify-center items-center gap-2">
+                📞 Call
+            </a>
+            <button
+                class="w-12 bg-slate-50 text-slate-500 hover:text-navy border border-slate-200 rounded-xl flex items-center justify-center transition"
+                title="Copy Number">📋</button>
+        </div>
+
+        <!-- Drawer Body (Scrollable) -->
+        <div class="flex-1 overflow-y-auto p-6 space-y-8">
+
+            <!-- Details Grid -->
+            <div>
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 border-b pb-1">Personal
+                    Details</h4>
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                    <div><span class="block text-slate-500">Age / Gender</span><span class="font-bold text-navy">21 /
+                            पुरुष</span></div>
+                    <div><span class="block text-slate-500">Current Status</span><span
+                            class="font-bold text-navy">प्रतियोगी परीक्षा</span></div>
+                    <div class="col-span-2"><span class="block text-slate-500">College / Course</span><span
+                            class="font-bold text-navy">Holkar Science College, B.Sc (Final Year)</span></div>
+                    <div class="col-span-2"><span class="block text-slate-500">Address</span><span
+                            class="font-bold text-navy">Vijay Nagar, इंदौर, मध्य प्रदेश</span></div>
+                    <div class="col-span-2"><span class="block text-slate-500">Source / Interest</span><span
+                            class="font-bold text-navy">सोशल मीडिया / समाज सेवा</span></div>
+                </div>
+            </div>
+
+            <!-- CRM Status & Notes -->
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Update CRM</h4>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Status</label>
+                        <select
+                            class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-saffron text-sm">
+                            <option selected>New</option>
+                            <option>Contacted</option>
+                            <option>Follow-up</option>
+                            <option>Joined</option>
+                            <option>Closed</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Officer Notes</label>
+                        <textarea rows="3"
+                            class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-saffron text-sm"
+                            placeholder="यहाँ नोट्स लिखें..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Timeline -->
+            <div>
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 border-b pb-1">Activity
+                    Timeline</h4>
+                <div
+                    class="space-y-4 relative before:absolute before:inset-0 before:ml-2 before:-translate-x-px md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-200 pl-6">
+                    <div class="relative">
+                        <div class="absolute -left-[30px] w-4 h-4 rounded-full bg-saffron border-4 border-white shadow">
+                        </div>
+                        <p class="font-bold text-sm text-navy">Form Submitted</p>
+                        <p class="text-xs text-slate-500">15 July, 10:30 AM</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Drawer Footer -->
+        <div class="p-4 border-t border-slate-100 bg-white shrink-0">
+            <button onclick="closeDrawer()"
+                class="w-full bg-saffron hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition shadow-md">
+                💾 Save Changes
+            </button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="drawer-overlay" onclick="closeDrawer()"
+        class="fixed inset-0 bg-navy/20 backdrop-blur-sm z-40 hidden transition-opacity opacity-0"></div>
+
+    <!-- Scripts -->
+    <script>
+        const drawer = document.getElementById('request-drawer');
+        const overlay = document.getElementById('drawer-overlay');
+
+        function openDrawer(statusType) {
+            // Update badge color based on row clicked (Simulated logic)
+            const badge = document.getElementById('drawer-badge');
+            if (statusType === 'new') { badge.className = "bg-orange-100 text-orange-700 px-2 py-0.5 rounded text-xs font-bold"; badge.innerText = "New"; }
+            else if (statusType === 'contacted') { badge.className = "bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-bold"; badge.innerText = "Contacted"; }
+            else if (statusType === 'joined') { badge.className = "bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-bold"; badge.innerText = "Joined"; }
+
+            drawer.classList.remove('translate-x-full');
+            overlay.classList.remove('hidden');
+            setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+        }
+
+        function closeDrawer() {
+            drawer.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0');
+            setTimeout(() => overlay.classList.add('hidden'), 300);
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const toggleBtn = document.getElementById('toggle-sidebar');
+            const sidebar = document.getElementById('sidebar');
+
+            toggleBtn.addEventListener('click', () => {
+                // Toggle width between 64 (16rem) and 0 for mobile/desktop flexibility
+                sidebar.classList.toggle('-ml-64'); // Using negative margin to slide it out
+            });
+        });
+    </script>
+</body>
+
+</html>

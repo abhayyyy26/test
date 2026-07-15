@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Management Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .bg-saffron {
+            background-color: #F97316;
+        }
+
+        .text-saffron {
+            color: #F97316;
+        }
+
+        .bg-navy {
+            background-color: #0F172A;
+        }
+
+        /* Premium Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Welcome Screen Progress Bar */
+        .progress-bar {
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #F97316, #fb923c);
+            animation: loadProgress 3s ease-in-out forwards;
+        }
+
+        @keyframes loadProgress {
+            0% {
+                width: 0%;
+            }
+
+            50% {
+                width: 60%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        /* Glassmorphism Navbar */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+
+<body class="bg-[#F8FAFC] text-slate-800 overflow-hidden h-screen flex">
+
+    <!-- ==========================================
+         1. SMART WELCOME SCREEN (Overlay)
+    =========================================== -->
+    <div id="welcome-screen"
+        class="fixed inset-0 z-50 flex flex-col items-center justify-between bg-gradient-to-br from-white to-orange-50 transition-opacity duration-700">
+        <div class="flex-1 flex flex-col items-center justify-center text-center">
+            <!-- Logo & Title -->
+            <div
+                class="w-16 h-16 bg-saffron rounded-full flex items-center justify-center text-white font-bold text-3xl mb-6 shadow-lg shadow-orange-200">
+                ॐ</div>
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-2 tracking-tight">महाविद्यालयीन कार्य</h1>
+            <h2 class="text-lg font-medium text-slate-500 tracking-widest uppercase mb-12">Management Portal</h2>
+
+            <!-- Greeting -->
+            <h3 class="text-2xl font-bold text-slate-800 mb-2">नमस्ते!</h3>
+            <p class="text-slate-600 mb-8">आपका स्वागत है।</p>
+
+            <!-- Loading Text -->
+            <p class="text-sm font-semibold text-saffron animate-pulse">Loading Dashboard...</p>
+        </div>
+
+        <!-- Bottom Section: Progress & Version -->
+        <div class="w-full max-w-md px-6 pb-8 text-center">
+            <div class="w-full bg-slate-200 rounded-full h-1 overflow-hidden mb-4">
+                <div class="progress-bar rounded-full"></div>
+            </div>
+            <p class="text-xs text-slate-400 font-medium tracking-wide">Version 1.0</p>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         2. SIDEBAR (Collapsible)
+    =========================================== -->
+    <aside id="sidebar" class="bg-navy w-64 h-full flex flex-col transition-all duration-300 z-20 shrink-0">
+        <!-- Sidebar Header -->
+        <div class="h-16 flex items-center px-6 border-b border-slate-800">
+            <div
+                class="w-8 h-8 bg-saffron rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">
+                ॐ</div>
+            <span class="text-white font-bold tracking-wide whitespace-nowrap overflow-hidden">Portal Admin</span>
+        </div>
+
+        <!-- Sidebar Links -->
+        <div class="flex-1 overflow-y-auto py-6 px-4 space-y-2">
+            <a href="dashboard.html"
+                class="flex items-center px-4 py-3 bg-saffron/10 text-saffron rounded-[12px] font-semibold transition">
+                <span class="mr-3 text-lg">🏠</span> Dashboard
+            </a>
+            <a href="events.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium">
+                <span class="mr-3 text-lg">📅</span> Events
+            </a>
+
+            <!-- 👇 नया Join Requests लिंक यहाँ जोड़ा गया है 👇 -->
+            <a href="join-requests.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium">
+                <span class="mr-3 text-lg">📥</span> Join Requests
+            </a>
+
+            <a href="news.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium">
+                <span class="mr-3 text-lg">📰</span> News
+            </a>
+            <a href="gallery.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium">
+                <span class="mr-3 text-lg">🖼️</span> Gallery
+            </a>
+            <a href="attendance.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium">
+                <span class="mr-3 text-lg">📋</span> Attendance
+            </a>
+            <a href="reports.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium">
+                <span class="mr-3 text-lg">📝</span> Reports
+            </a>
+            <a href="documents.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium">
+                <span class="mr-3 text-lg">📂</span> Documents
+            </a>
+            <a href="cms.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium">
+                <span class="mr-3 text-lg">🌐</span> Website CMS
+            </a>
+        </div>
+
+        <!-- Settings -->
+        <div class="p-4 border-t border-slate-800">
+            <a href="settings.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium">
+                <span class="mr-3 text-lg">⚙️</span> Settings
+            </a>
+        </div>
+    </aside>
+
+    <!-- ==========================================
+         3. MAIN CONTENT AREA
+    =========================================== -->
+    <main class="flex-1 flex flex-col h-full overflow-hidden relative">
+
+        <!-- NAVBAR (Glass) -->
+        <header class="h-16 glass-nav border-b border-slate-200 flex items-center justify-between px-6 z-10 shrink-0">
+            <div class="flex items-center gap-4">
+                <button id="toggle-sidebar" class="text-slate-500 hover:text-saffron transition focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <div class="hidden md:flex items-center bg-slate-100 rounded-full px-4 py-2">
+                    <svg class="w-4 h-4 text-slate-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <input type="text" placeholder="Search..."
+                        class="bg-transparent border-none outline-none text-sm w-48 text-slate-700">
+                </div>
+            </div>
+
+            <div class="flex items-center gap-5">
+                <button class="relative text-slate-500 hover:text-saffron transition">
+                    <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full animate-ping"></span>
+                    <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full"></span>
+                    <span class="text-xl">🔔</span>
+                </button>
+                <button class="text-slate-500 hover:text-saffron transition text-xl">🌙</button>
+                <div class="flex items-center gap-3 pl-4 border-l border-slate-200 cursor-pointer group">
+                    <div class="w-9 h-9 bg-saffron rounded-full flex items-center justify-center text-white font-bold">A
+                    </div>
+                    <span
+                        class="hidden md:block text-sm font-semibold text-slate-700 group-hover:text-saffron transition">Admin
+                        User</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- SCROLLABLE DASHBOARD -->
+        <div class="flex-1 overflow-y-auto p-6 lg:p-8 space-y-8 scroll-smooth">
+
+            <!-- ⭐ Today's Summary (आपका सुझाव) -->
+            <div
+                class="bg-indigo-50 border border-indigo-100 rounded-[18px] p-4 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+                <div class="flex items-center gap-2 text-indigo-800 font-bold">
+                    <span class="text-xl">✨</span> आज का सार (Today's Summary)
+                </div>
+                <div class="flex flex-wrap gap-4 text-sm font-medium">
+                    <span class="bg-white px-3 py-1.5 rounded-full text-slate-700 shadow-sm">📅 2 कार्यक्रम</span>
+                    <span class="bg-white px-3 py-1.5 rounded-full text-slate-700 shadow-sm">📰 1 नई सूचना</span>
+                    <span class="bg-white px-3 py-1.5 rounded-full text-slate-700 shadow-sm">📸 3 तस्वीरें</span>
+                    <span class="bg-red-50 text-red-600 px-3 py-1.5 rounded-full shadow-sm border border-red-100">📝 2
+                        रिपोर्ट लंबित</span>
+                </div>
+            </div>
+
+            <!-- Welcome Card -->
+            <div
+                class="bg-gradient-to-r from-slate-900 to-navy rounded-[18px] p-8 text-white shadow-lg flex flex-col md:flex-row justify-between items-center gap-6 relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-40 h-40 bg-saffron rounded-full blur-3xl opacity-20"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold mb-2">🙏 नमस्ते, Admin!</h2>
+                    <p class="text-slate-300">महाविद्यालयीन कार्य Management Portal में आपका स्वागत है। आज का दिन मंगलमय
+                        हो।</p>
+                </div>
+                <div
+                    class="relative z-10 text-right bg-white/10 backdrop-blur px-6 py-4 rounded-2xl border border-white/10">
+                    <p id="current-date" class="text-sm font-medium text-slate-300 mb-1"></p>
+                    <p id="live-clock" class="text-3xl font-extrabold tracking-tight text-saffron"></p>
+                </div>
+            </div>
+
+            <!-- Quick Actions (4 Big Buttons) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <button
+                    class="bg-white border border-slate-200 p-4 rounded-[18px] font-semibold text-slate-700 hover:border-saffron hover:text-saffron hover:shadow-md transition group flex flex-col items-center gap-2">
+                    <span
+                        class="w-10 h-10 bg-orange-50 text-saffron rounded-full flex items-center justify-center text-xl group-hover:scale-110 transition-transform">+</span>
+                    Create Event
+                </button>
+                <button
+                    class="bg-white border border-slate-200 p-4 rounded-[18px] font-semibold text-slate-700 hover:border-saffron hover:text-saffron hover:shadow-md transition group flex flex-col items-center gap-2">
+                    <span
+                        class="w-10 h-10 bg-orange-50 text-saffron rounded-full flex items-center justify-center text-xl group-hover:scale-110 transition-transform">+</span>
+                    Publish News
+                </button>
+                <button
+                    class="bg-white border border-slate-200 p-4 rounded-[18px] font-semibold text-slate-700 hover:border-saffron hover:text-saffron hover:shadow-md transition group flex flex-col items-center gap-2">
+                    <span
+                        class="w-10 h-10 bg-orange-50 text-saffron rounded-full flex items-center justify-center text-xl group-hover:scale-110 transition-transform">+</span>
+                    Create Gallery
+                </button>
+                <button
+                    class="bg-white border border-slate-200 p-4 rounded-[18px] font-semibold text-slate-700 hover:border-saffron hover:text-saffron hover:shadow-md transition group flex flex-col items-center gap-2">
+                    <span
+                        class="w-10 h-10 bg-orange-50 text-saffron rounded-full flex items-center justify-center text-xl group-hover:scale-110 transition-transform">+</span>
+                    Upload Doc
+                </button>
+            </div>
+
+            <!-- Quick Overview Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white p-6 rounded-[18px] shadow-sm border border-slate-100 hover:-translate-y-1 transition duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl">
+                            📅</div>
+                        <span class="text-xs font-bold text-green-500 bg-green-50 px-2 py-1 rounded-full">+2
+                            Today</span>
+                    </div>
+                    <p class="text-slate-500 font-medium text-sm">कार्यक्रम (Events)</p>
+                    <h3 class="text-3xl font-extrabold text-slate-800 mt-1">12</h3>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="bg-white p-6 rounded-[18px] shadow-sm border border-slate-100 hover:-translate-y-1 transition duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-12 h-12 bg-orange-50 text-saffron rounded-2xl flex items-center justify-center text-2xl">
+                            📰</div>
+                        <span
+                            class="text-xs font-bold text-green-500 bg-green-50 px-2 py-1 rounded-full">Published</span>
+                    </div>
+                    <p class="text-slate-500 font-medium text-sm">समाचार (News)</p>
+                    <h3 class="text-3xl font-extrabold text-slate-800 mt-1">45</h3>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="bg-white p-6 rounded-[18px] shadow-sm border border-slate-100 hover:-translate-y-1 transition duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-12 h-12 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-2xl">
+                            🖼️</div>
+                        <span class="text-xs font-bold text-slate-500 bg-slate-50 px-2 py-1 rounded-full">Albums</span>
+                    </div>
+                    <p class="text-slate-500 font-medium text-sm">गैलरी (Gallery)</p>
+                    <h3 class="text-3xl font-extrabold text-slate-800 mt-1">28</h3>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="bg-white p-6 rounded-[18px] shadow-sm border border-slate-100 hover:-translate-y-1 transition duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-12 h-12 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center text-2xl">
+                            📝</div>
+                        <span class="text-xs font-bold text-red-500 bg-red-50 px-2 py-1 rounded-full">Action
+                            Needed</span>
+                    </div>
+                    <p class="text-slate-500 font-medium text-sm">लंबित रिपोर्ट (Pending)</p>
+                    <h3 class="text-3xl font-extrabold text-slate-800 mt-1">05</h3>
+                </div>
+            </div>
+
+            <!-- Content Grid: Events & Timeline -->
+            <div class="grid xl:grid-cols-3 gap-8">
+
+                <!-- Today's Events Table (Spans 2 columns) -->
+                <div class="xl:col-span-2 bg-white rounded-[18px] shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                        <h3 class="text-lg font-bold text-slate-800">आज के कार्यक्रम</h3>
+                        <a href="#" class="text-sm font-semibold text-saffron hover:underline">View All</a>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-50 text-slate-500 text-sm">
+                                    <th class="p-4 font-semibold">कार्यक्रम</th>
+                                    <th class="p-4 font-semibold">समय</th>
+                                    <th class="p-4 font-semibold">स्थान</th>
+                                    <th class="p-4 font-semibold">स्थिति</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm text-slate-700">
+                                <tr class="border-b border-slate-50 hover:bg-slate-50 transition">
+                                    <td class="p-4 font-medium text-navy">स्वतंत्रता दिवस बैठक</td>
+                                    <td class="p-4">02:00 PM</td>
+                                    <td class="p-4">मुख्य कार्यालय</td>
+                                    <td class="p-4"><span
+                                            class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-bold">Upcoming</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="p-4 font-medium text-navy">कॉलेज प्रमुख चर्चा</td>
+                                    <td class="p-4">10:30 AM</td>
+                                    <td class="p-4">वर्चुअल (Zoom)</td>
+                                    <td class="p-4"><span
+                                            class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Completed</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Activity Timeline (Sidebar Column) -->
+                <div class="bg-white rounded-[18px] shadow-sm border border-slate-100 p-6">
+                    <h3 class="text-lg font-bold text-slate-800 mb-6">Activity Timeline</h3>
+                    <div
+                        class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent">
+
+                        <!-- Timeline Item -->
+                        <div
+                            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                            <div
+                                class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-saffron text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                                <span class="text-xs">📰</span>
+                            </div>
+                            <div
+                                class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-slate-100 bg-slate-50 shadow-sm">
+                                <div class="flex items-center justify-between space-x-2 mb-1">
+                                    <div class="font-bold text-slate-800 text-sm">News Published</div>
+                                    <time class="font-medium text-saffron text-xs">10:30 AM</time>
+                                </div>
+                                <div class="text-slate-500 text-xs">युवा संकल्प शिविर...</div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item -->
+                        <div
+                            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                            <div
+                                class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-blue-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                                <span class="text-xs">🖼️</span>
+                            </div>
+                            <div
+                                class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-slate-100 bg-slate-50 shadow-sm">
+                                <div class="flex items-center justify-between space-x-2 mb-1">
+                                    <div class="font-bold text-slate-800 text-sm">Gallery Updated</div>
+                                    <time class="font-medium text-saffron text-xs">09:15 AM</time>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Inside Dashboard -->
+            <footer class="mt-8 pt-6 border-t border-slate-200 text-center text-slate-400 text-sm pb-4">
+                <p>Mahavidhyaleen Karya Portal | Version 1.0 &copy; 2026</p>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- ==========================================
+         JAVASCRIPT FOR FUNCTIONALITY
+    =========================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. SMART WELCOME SCREEN LOGIC (Fades out after 3 seconds)
+            const welcomeScreen = document.getElementById('welcome-screen');
+            setTimeout(() => {
+                welcomeScreen.classList.add('opacity-0');
+                // Remove from DOM after fade out transition (700ms)
+                setTimeout(() => {
+                    welcomeScreen.remove();
+                }, 700);
+            }, 3000); // 3 seconds Smart Timer
+
+            // 2. LIVE CLOCK & DATE LOGIC
+            const timeElement = document.getElementById('live-clock');
+            const dateElement = document.getElementById('current-date');
+
+            // Format Date (e.g., 14 July 2026)
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            dateElement.textContent = new Date().toLocaleDateString('hi-IN', options);
+
+            // Update Clock Every Second
+            setInterval(() => {
+                const now = new Date();
+                timeElement.textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+            }, 1000);
+
+            // 3. SIDEBAR TOGGLE LOGIC
+            const toggleBtn = document.getElementById('toggle-sidebar');
+            const sidebar = document.getElementById('sidebar');
+
+            toggleBtn.addEventListener('click', () => {
+                // Toggle width between 64 (16rem) and 0 for mobile/desktop flexibility
+                sidebar.classList.toggle('-ml-64'); // Using negative margin to slide it out
+            });
+        });
+    </script>
+</body>
+
+</html>

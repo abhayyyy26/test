@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Management Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+        }
+
+        .bg-saffron {
+            background-color: #F97316;
+        }
+
+        .text-saffron {
+            color: #F97316;
+        }
+
+        .bg-navy {
+            background-color: #0F172A;
+        }
+
+        .text-navy {
+            color: #0F172A;
+        }
+
+        /* Premium Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 h-screen flex overflow-hidden">
+
+    <!-- ==========================================
+         SIDEBAR 
+    =========================================== -->
+    <aside id="sidebar" class="bg-navy w-64 h-full flex flex-col transition-all duration-300 z-20 shrink-0">
+        <!-- Sidebar Header -->
+        <div class="h-16 flex items-center px-6 border-b border-slate-800">
+            <div
+                class="w-8 h-8 bg-saffron rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">
+                ॐ</div>
+            <span class="text-white font-bold tracking-wide whitespace-nowrap overflow-hidden">Portal Admin</span>
+        </div>
+
+        <!-- Sidebar Links -->
+        <div class="flex-1 overflow-y-auto py-6 px-4 space-y-2">
+            <a href="dashboard.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">🏠</span> Dashboard</a>
+
+            <!-- Active Menu: Events -->
+            <a href="events.html"
+                class="flex items-center px-4 py-3 bg-saffron/10 text-saffron rounded-[12px] font-semibold transition"><span
+                    class="mr-3 text-lg">📅</span> Events</a>
+
+            <a href="join-requests.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">📥</span> Join Requests</a>
+            <a href="news.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">📰</span> News</a>
+            <a href="gallery.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">🖼️</span> Gallery</a>
+            <a href="attendance.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">📋</span> Attendance</a>
+            <a href="reports.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">📝</span> Reports</a>
+            <a href="documents.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">📂</span> Documents</a>
+            <a href="cms.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">🌐</span> Website CMS</a>
+        </div>
+
+        <!-- Settings -->
+        <div class="p-4 border-t border-slate-800">
+            <a href="settings.html"
+                class="flex items-center px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-[12px] transition font-medium"><span
+                    class="mr-3 text-lg">⚙️</span> Settings</a>
+        </div>
+    </aside>
+
+    <!-- ==========================================
+         MAIN CONTENT AREA
+    =========================================== -->
+    <main class="flex-1 flex flex-col h-full relative">
+
+        <!-- Header -->
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 shrink-0">
+            <button id="toggle-sidebar" class="text-slate-500 hover:text-saffron transition focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+            <div class="flex items-center gap-4">
+                <h1 class="text-xl font-bold text-navy">📅 Event Management</h1>
+            </div>
+            <button onclick="openEventModal('create')"
+                class="bg-saffron text-white px-5 py-2 rounded-xl font-bold shadow-md hover:bg-orange-600 transition flex items-center gap-2">
+                <span>+</span> Create Event
+            </button>
+        </header>
+
+        <!-- Scrollable Area -->
+        <div class="flex-1 overflow-y-auto p-6 space-y-6">
+
+            <!-- 1. Statistics Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div
+                    class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+                    <div>
+                        <p class="text-slate-500 text-sm font-medium">Total Events</p>
+                        <h3 class="text-2xl font-bold text-navy">124</h3>
+                    </div>
+                    <div class="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center text-xl">📊</div>
+                </div>
+                <div
+                    class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+                    <div>
+                        <p class="text-slate-500 text-sm font-medium">Upcoming</p>
+                        <h3 class="text-2xl font-bold text-blue-600">12</h3>
+                    </div>
+                    <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center text-xl">⏳</div>
+                </div>
+                <div
+                    class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+                    <div>
+                        <p class="text-slate-500 text-sm font-medium">Completed</p>
+                        <h3 class="text-2xl font-bold text-green-600">105</h3>
+                    </div>
+                    <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center text-xl">✅</div>
+                </div>
+                <div
+                    class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+                    <div>
+                        <p class="text-slate-500 text-sm font-medium">Cancelled</p>
+                        <h3 class="text-2xl font-bold text-red-600">07</h3>
+                    </div>
+                    <div class="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center text-xl">❌</div>
+                </div>
+            </div>
+
+            <!-- 2. Search & Filters -->
+            <div
+                class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex flex-wrap gap-4 items-center justify-between">
+                <div class="flex flex-wrap gap-3 flex-1">
+                    <div class="relative w-full md:w-64">
+                        <span class="absolute left-3 top-2.5 text-slate-400">🔍</span>
+                        <input type="text" placeholder="Search Event..."
+                            class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-saffron">
+                    </div>
+                    <select
+                        class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm text-slate-600 focus:outline-none">
+                        <option>📅 Date Filter</option>
+                        <option>This Month</option>
+                        <option>Next Month</option>
+                    </select>
+                    <select
+                        class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm text-slate-600 focus:outline-none">
+                        <option>📂 Category</option>
+                        <option>Meeting</option>
+                        <option>Camp</option>
+                        <option>Social Service</option>
+                    </select>
+                    <select
+                        class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm text-slate-600 focus:outline-none">
+                        <option>Status Filter</option>
+                        <option>Upcoming</option>
+                        <option>Completed</option>
+                        <option>Draft</option>
+                    </select>
+                </div>
+                <!-- View Toggles -->
+                <div class="flex bg-slate-100 p-1 rounded-xl">
+                    <button
+                        class="px-3 py-1.5 bg-white shadow-sm rounded-lg text-sm font-medium text-navy">Grid</button>
+                    <button
+                        class="px-3 py-1.5 rounded-lg text-sm font-medium text-slate-500 hover:text-navy">List</button>
+                    <button
+                        class="px-3 py-1.5 rounded-lg text-sm font-medium text-slate-500 hover:text-navy">Calendar</button>
+                </div>
+            </div>
+
+            <!-- 3. Event Cards (Grid View) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+                <!-- Event Card 1 (Upcoming) -->
+                <div
+                    class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition group">
+                    <div class="relative h-40 bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1523580494112-071d45d41bd8"
+                            class="w-full h-full object-cover">
+                        <span
+                            class="absolute top-3 right-3 bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold shadow-sm backdrop-blur-md bg-opacity-90">Upcoming</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-xs font-bold text-saffron uppercase tracking-wider">राष्ट्रीय पर्व</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy mb-3 line-clamp-1">स्वतंत्रता दिवस समारोह 2026</h3>
+                        <div class="space-y-2 text-sm text-slate-600 mb-5">
+                            <p class="flex items-center gap-2"><span>📅</span> 15 अगस्त 2026</p>
+                            <p class="flex items-center gap-2"><span>⏰</span> 08:00 AM - 12:00 PM</p>
+                            <p class="flex items-center gap-2"><span>📍</span> मुख्य महाविद्यालय प्रांगण</p>
+                        </div>
+                        <div class="flex items-center gap-2 pt-4 border-t border-slate-100">
+                            <!-- View Button opens the Mini Workspace -->
+                            <button onclick="openWorkspace()"
+                                class="flex-1 bg-slate-50 hover:bg-slate-100 text-navy font-semibold py-2 rounded-xl text-sm transition text-center border border-slate-200">👁
+                                View</button>
+                            <button onclick="openEventModal('edit')"
+                                class="flex-1 bg-slate-50 hover:bg-slate-100 text-navy font-semibold py-2 rounded-xl text-sm transition text-center border border-slate-200">✏
+                                Edit</button>
+                            <button onclick="deleteEvent(this)"
+                                class="w-10 bg-slate-50 hover:bg-red-50 hover:text-red-600 text-slate-400 font-semibold py-2 rounded-xl text-sm transition flex justify-center border border-slate-200">🗑</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 (Completed) -->
+                <div
+                    class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition group">
+                    <div class="relative h-40 bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389"
+                            class="w-full h-full object-cover grayscale opacity-80">
+                        <span
+                            class="absolute top-3 right-3 bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold shadow-sm">Completed</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-xs font-bold text-saffron uppercase tracking-wider">अध्ययन वर्ग</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy mb-3 line-clamp-1">युवा नेतृत्व कार्यशाला</h3>
+                        <div class="space-y-2 text-sm text-slate-600 mb-5">
+                            <p class="flex items-center gap-2"><span>📅</span> 05 जुलाई 2026</p>
+                            <p class="flex items-center gap-2"><span>⏰</span> 10:00 AM - 04:00 PM</p>
+                            <p class="flex items-center gap-2"><span>📍</span> संघ कार्यालय, सभागार</p>
+                        </div>
+                        <div class="flex items-center gap-2 pt-4 border-t border-slate-100">
+                            <button onclick="openWorkspace()"
+                                class="flex-1 bg-slate-50 hover:bg-slate-100 text-navy font-semibold py-2 rounded-xl text-sm transition text-center border border-slate-200">👁
+                                Workspace</button>
+                            <button
+                                class="flex-1 bg-slate-50 hover:bg-slate-100 text-navy font-semibold py-2 rounded-xl text-sm transition text-center border border-slate-200">📂
+                                Archive</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ==========================================
+         4. THE "MINI WORKSPACE" (Slide-over Panel)
+    =========================================== -->
+    <div id="workspace-panel"
+        class="fixed inset-y-0 right-0 w-full md:w-[600px] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50 flex flex-col border-l border-slate-200">
+        <!-- Workspace Header -->
+        <div class="relative h-48 shrink-0">
+            <img src="https://images.unsplash.com/photo-1523580494112-071d45d41bd8" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy/90 to-transparent flex items-end p-6">
+                <div class="w-full">
+                    <span
+                        class="bg-blue-500 text-white px-2 py-0.5 rounded text-xs font-bold mb-2 inline-block">Upcoming</span>
+                    <h2 class="text-2xl font-bold text-white">स्वतंत्रता दिवस समारोह 2026</h2>
+                </div>
+            </div>
+            <button onclick="closeWorkspace()"
+                class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 text-white w-8 h-8 rounded-full flex items-center justify-center backdrop-blur transition">✕</button>
+        </div>
+
+        <!-- Workspace Tabs -->
+        <div class="flex border-b border-slate-200 px-2 overflow-x-auto shrink-0 bg-slate-50">
+            <button class="px-4 py-3 text-sm font-bold text-saffron border-b-2 border-saffron whitespace-nowrap">Basic
+                Details</button>
+            <button
+                class="px-4 py-3 text-sm font-medium text-slate-500 hover:text-navy whitespace-nowrap">Schedule</button>
+            <button class="px-4 py-3 text-sm font-medium text-slate-500 hover:text-navy whitespace-nowrap">Gallery
+                (0)</button>
+            <button
+                class="px-4 py-3 text-sm font-medium text-slate-500 hover:text-navy whitespace-nowrap">Attendance</button>
+            <button
+                class="px-4 py-3 text-sm font-medium text-slate-500 hover:text-navy whitespace-nowrap">Reports</button>
+        </div>
+
+        <!-- Workspace Content Area (Basic Details) -->
+        <div class="flex-1 overflow-y-auto p-6 space-y-6">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <p class="text-xs text-slate-400 font-medium mb-1">Date & Time</p>
+                    <p class="text-sm font-bold text-navy">15 Aug 2026, 08:00 AM</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <p class="text-xs text-slate-400 font-medium mb-1">Location</p>
+                    <p class="text-sm font-bold text-navy">मुख्य प्रांगण</p>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-navy mb-2">Description</h4>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    महाविद्यालयीन कार्य के अंतर्गत आयोजित होने वाला इस वर्ष का स्वतंत्रता दिवस समारोह। इसमें मुख्य अतिथि
+                    द्वारा ध्वजारोहण एवं विद्यार्थियों द्वारा सांस्कृतिक प्रस्तुतियां दी जाएंगी।
+                </p>
+            </div>
+
+            <!-- Auto-linked Modules Info -->
+            <div class="border-t border-slate-200 pt-6">
+                <h4 class="font-bold text-navy mb-4">Linked Data</h4>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 border border-slate-200 rounded-lg bg-white">
+                        <div class="flex items-center gap-3"><span class="text-xl">📰</span><span
+                                class="text-sm font-medium">News Drafts</span></div>
+                        <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600">Pending</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 border border-slate-200 rounded-lg bg-white">
+                        <div class="flex items-center gap-3"><span class="text-xl">📸</span><span
+                                class="text-sm font-medium">Event Gallery</span></div>
+                        <button class="text-xs text-saffron font-bold hover:underline">Upload Photos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Overlay for Workspace -->
+    <div id="workspace-overlay" onclick="closeWorkspace()"
+        class="fixed inset-0 bg-navy/20 backdrop-blur-sm z-40 hidden transition-opacity"></div>
+    <!-- ==========================================
+         5. CREATE / EDIT EVENT MODAL (Popup)
+    =========================================== -->
+    <div id="event-modal-overlay"
+        class="fixed inset-0 bg-navy/40 backdrop-blur-sm z-[60] hidden flex items-center justify-center transition-opacity opacity-0">
+        <div id="event-modal"
+            class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden transform scale-95 transition-transform duration-300">
+
+            <!-- Modal Header -->
+            <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h2 id="modal-title" class="text-xl font-bold text-navy">✨ Create New Event</h2>
+                <button onclick="closeEventModal()"
+                    class="text-slate-400 hover:text-red-500 transition text-2xl leading-none">&times;</button>
+            </div>
+
+            <!-- Modal Body (Form) -->
+            <div class="p-6 space-y-4 max-h-[70vh] overflow-y-auto">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="col-span-2">
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Event Name</label>
+                        <input type="text" id="eventName" placeholder="उदा. युवा संकल्प शिविर"
+                            class="w-full px-4 py-2 border border-slate-200 rounded-xl focus:border-saffron focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Date</label>
+                        <input type="date"
+                            class="w-full px-4 py-2 border border-slate-200 rounded-xl focus:border-saffron focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Time</label>
+                        <input type="time"
+                            class="w-full px-4 py-2 border border-slate-200 rounded-xl focus:border-saffron focus:outline-none">
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Venue (Location)</label>
+                        <input type="text" placeholder="उदा. मुख्य प्रांगण"
+                            class="w-full px-4 py-2 border border-slate-200 rounded-xl focus:border-saffron focus:outline-none">
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Category</label>
+                        <select
+                            class="w-full px-4 py-2 border border-slate-200 rounded-xl focus:border-saffron focus:outline-none">
+                            <option>राष्ट्रीय पर्व</option>
+                            <option>अध्ययन वर्ग</option>
+                            <option>सेवा कार्य</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-4 border-t border-slate-100 flex justify-end gap-3 bg-slate-50">
+                <button onclick="closeEventModal()"
+                    class="px-5 py-2 rounded-xl font-semibold text-slate-600 hover:bg-slate-200 transition">Cancel</button>
+                <button onclick="saveEvent()"
+                    class="px-5 py-2 bg-saffron hover:bg-orange-600 text-white rounded-xl font-bold transition shadow-md">Save
+                    Event</button>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script>
+        // ----------------------------------------------------
+        // 1. WORKSPACE PANEL LOGIC
+        // ----------------------------------------------------
+        function openWorkspace() {
+            document.getElementById('workspace-panel').classList.remove('translate-x-full');
+            document.getElementById('workspace-overlay').classList.remove('hidden');
+        }
+
+        function closeWorkspace() {
+            document.getElementById('workspace-panel').classList.add('translate-x-full');
+            document.getElementById('workspace-overlay').classList.add('hidden');
+        }
+
+        // ----------------------------------------------------
+        // 2. CREATE / EDIT MODAL LOGIC
+        // ----------------------------------------------------
+        const modalOverlay = document.getElementById('event-modal-overlay');
+        const modalBox = document.getElementById('event-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const eventNameInput = document.getElementById('eventName');
+
+        function openEventModal(mode) {
+            // Show Overlay
+            modalOverlay.classList.remove('hidden');
+
+            // Timeout to allow display block to render before opacity transition
+            setTimeout(() => {
+                modalOverlay.classList.remove('opacity-0');
+                modalBox.classList.remove('scale-95');
+            }, 10);
+
+            // Change Text based on Create or Edit
+            if (mode === 'edit') {
+                modalTitle.innerHTML = "✏️ Edit Event Details";
+                eventNameInput.value = "स्वतंत्रता दिवस समारोह 2026"; // Dummy pre-fill
+            } else {
+                modalTitle.innerHTML = "✨ Create New Event";
+                eventNameInput.value = ""; // Clear field
+            }
+        }
+
+        function closeEventModal() {
+            modalOverlay.classList.add('opacity-0');
+            modalBox.classList.add('scale-95');
+
+            // Wait for transition to finish before hiding
+            setTimeout(() => {
+                modalOverlay.classList.add('hidden');
+            }, 300);
+        }
+
+        function saveEvent() {
+            alert("✅ Event Saved Successfully!");
+            closeEventModal();
+        }
+
+        // ----------------------------------------------------
+        // 3. DELETE EVENT LOGIC
+        // ----------------------------------------------------
+        function deleteEvent(buttonElement) {
+            // Show confirmation dialog
+            const isConfirmed = confirm("⚠️ क्या आप वाकई इस Event को Delete करना चाहते हैं?");
+
+            if (isConfirmed) {
+                // Find the parent card of the clicked button and remove it with an animation
+                const eventCard = buttonElement.closest('.group');
+
+                eventCard.style.transition = "all 0.3s ease";
+                eventCard.style.transform = "scale(0.9)";
+                eventCard.style.opacity = "0";
+
+                setTimeout(() => {
+                    eventCard.remove();
+                }, 300);
+            }
+        }
+
+        // ----------------------------------------------------
+        // 4. WORKSPACE TABS LOGIC
+        // ----------------------------------------------------
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('#workspace-panel .flex button');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    // Remove Active Class from all tabs
+                    tabs.forEach(t => {
+                        t.classList.remove('text-saffron', 'border-saffron', 'border-b-2', 'font-bold');
+                        t.classList.add('text-slate-500', 'font-medium');
+                    });
+
+                    // Add Active Class to clicked tab
+                    const clickedTab = e.target;
+                    clickedTab.classList.remove('text-slate-500', 'font-medium');
+                    clickedTab.classList.add('text-saffron', 'border-saffron', 'border-b-2', 'font-bold');
+                });
+            });
+
+
+            // 3. SIDEBAR TOGGLE LOGIC
+            const toggleBtn = document.getElementById('toggle-sidebar');
+            const sidebar = document.getElementById('sidebar');
+
+            toggleBtn.addEventListener('click', () => {
+                // Toggle width between 64 (16rem) and 0 for mobile/desktop flexibility
+                sidebar.classList.toggle('-ml-64'); // Using negative margin to slide it out
+            });
+        });
+
+    </script>
+</body>
+
+</html>

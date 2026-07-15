@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Management Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+        }
+
+        .bg-saffron {
+            background-color: #F97316;
+        }
+
+        .gradient-btn {
+            background: linear-gradient(to right, #F97316, #EA580C);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+    <!-- Top Header -->
+    <header class="p-6 flex items-center justify-between bg-white border-b border-gray-100">
+        <div class="flex items-center gap-3">
+            <div
+                class="w-10 h-10 bg-saffron rounded-full flex items-center justify-center text-white font-bold text-xl">
+                ॐ</div>
+            <h1 class="font-bold text-xl text-slate-800">महाविद्यालयीन कार्य <span class="text-slate-400 font-normal">|
+                    Management Portal</span></h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="max-w-5xl w-full flex bg-white rounded-[20px] shadow-2xl overflow-hidden min-h-[600px]">
+
+            <!-- Left Showcase Section -->
+            <div class="hidden lg:flex flex-col w-[45%] bg-gradient-to-br from-slate-900 to-slate-800 p-12 text-white">
+                <h2 class="text-3xl font-bold mb-6">Management Portal</h2>
+                <p class="text-slate-400 mb-8">अधिकृत अधिकारियों के लिए सुरक्षित डिजिटल प्रबंधन प्रणाली।</p>
+                <div class="mt-auto space-y-4">
+                    <div class="flex items-center gap-3"><span>✔</span> Secure Access</div>
+                    <div class="flex items-center gap-3"><span>✔</span> Fast Management</div>
+                    <div class="flex items-center gap-3"><span>✔</span> Digital Records</div>
+                </div>
+            </div>
+
+            <!-- Login Card Section -->
+            <div class="w-full lg:w-[55%] p-12 flex flex-col justify-center">
+                <div class="text-center mb-8">
+                    <div class="text-4xl mb-4">🔐</div>
+                    <h2 class="text-2xl font-bold text-slate-800">स्वागत है</h2>
+                    <p class="text-slate-500">कृपया अपनी Login जानकारी दर्ज करें।</p>
+                </div>
+
+                <form id="loginForm" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">👤 User ID</label>
+                        <input type="text" id="userid" required
+                            class="w-full h-14 px-4 rounded-xl border border-slate-200 focus:border-orange-500 outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">🔒 Password</label>
+                        <input type="password" id="password" required
+                            class="w-full h-14 px-4 rounded-xl border border-slate-200 focus:border-orange-500 outline-none transition">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center gap-2 text-sm text-slate-600">
+                            <input type="checkbox"> इस डिवाइस को याद रखें
+                        </label>
+                    </div>
+                    <button type="submit"
+                        class="w-full h-14 gradient-btn text-white rounded-xl font-bold hover:scale-[1.02] transition shadow-lg">Login</button>
+                </form>
+
+                <div class="mt-8 text-center text-sm text-slate-400">
+                    🔐 Secure Login Only
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-6 text-center text-slate-400 text-sm">
+        © 2026 Mahavidhyaleen Karya | Version 1.0
+    </footer>
+    <!-- login.html के सबसे नीचे ये लिखें -->
+    <script type="module" src="login.js"></script>
+</body>
+
+</html>
